@@ -1211,45 +1211,7 @@ html, body { overflow-x: hidden; }
 
 
 
-/* =========================================
-   SHAHRAJ — PURE WHITE LIGHT THEME
-   ========================================= */
-
-/* Replace global off-white colors */
-:root {
-  --cream: #FFFFFF;
-  --cream-dark: #FFFFFF;
-}
-
-/* All light-background sections */
-body,
-.intro,
-.intro-clean,
-.services,
-.numbers,
-.process,
-.possibilities,
-.packages,
-.crew-section,
-.contact-panel,
-.site-footer {
-  background: #FFFFFF !important;
-}
-
-/* Off-white cards */
-.service-card,
-.process-step,
-.package-card:not(.package-featured) {
-  background: #FFFFFF !important;
-}
-
-/* Off-white buttons and navigation */
-.nav-shell,
-.nav-links,
-.button-cream {
-  background: #FFFFFF !important;
-}
 
 
 
-
+ */
