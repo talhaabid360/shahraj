@@ -154,8 +154,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .muted-bullet { color: #A07ACB; }
 
 /* Orbital services carousel */
-/* .services { padding-bottom: 78px; background: linear-gradient(180deg,#F0EBFA 0%,#EEE8F7 52%,#F4EFF8 100%); overflow: hidden; } */
-.services { padding-bottom: 78px; background: #FFFFFF; overflow: hidden; }
+.services { padding-bottom: 78px; background: linear-gradient(180deg,#F0EBFA 0%,#EEE8F7 52%,#F4EFF8 100%); overflow: hidden; }
+
 .section-heading-row { display: flex; justify-content: space-between; align-items: end; gap: 60px; }
 .services-title { font-size: clamp(4rem,6.8vw,7.4rem); }
 .services-title em { color: var(--violet-dark); }
