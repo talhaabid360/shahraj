@@ -267,7 +267,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .numbers-header h2 { font-size: clamp(4rem,6.9vw,7.1rem); }
 .numbers-header h2 span { color: var(--violet-dark); }
 .numbers-header p, .process-header p, .possibilities-head p, .packages-header p { max-width: 350px; color: #6C6471; line-height: 1.65; margin: 0 0 5px; font-size: 16px; }
-.numbers-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); margin-top: 96px; border-top: 1px solid var(--line); }
+.numbers-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); margin-top: 0; border-top: 1px solid var(--line); }
 .number-block { padding: 31px 22px 8px 26px; border-left: 1px solid var(--line); }
 .number-block:first-child { border-left: 0; padding-left: 0; }
 .number-kicker { color: #817489; font-size: 9px; letter-spacing: .13em; font-weight: 800; }
