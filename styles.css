@@ -596,3 +596,12 @@ html, body { overflow-x: hidden; }
   }
 }
 
+
+/* CLEAN HERO GLOBE — REMOVE DECORATIVE ELEMENTS */
+
+.hero-art .floating-label,
+.hero-art .micro-dot,
+.hero-art .orb-glint,
+.hero-art .orbit-bottom-note {
+  display: none !important;
+}
