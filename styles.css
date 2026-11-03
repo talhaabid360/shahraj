@@ -880,3 +880,126 @@ html, body { overflow-x: hidden; }
 }
 
 
+/* =====================================
+   SHAHRAJ — SEAMLESS HERO MARQUEE
+   ===================================== */
+
+.hero-bottom {
+  display: block;
+  height: auto;
+  min-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-top: 1px solid rgba(255,255,255,0.20);
+}
+
+/* Transparent, aligned with the grey line */
+.hero-bottom .ticker {
+  position: relative;
+  width: calc(100% + 2 * var(--gutter));
+  margin-inline: calc(-1 * var(--gutter));
+  overflow: hidden;
+  border: none;
+  background: transparent !important;
+
+  /* Fade text at left and right edges */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 9%,
+    black 91%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 9%,
+    black 91%,
+    transparent 100%
+  );
+}
+
+/* Continuous animation */
+.hero-bottom .ticker-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  height: 57px;
+  gap: 0;
+  animation: heroTickerLoop
+    var(--ticker-duration, 22s)
+    linear infinite;
+  will-change: transform;
+}
+
+/* One repeatable group */
+.hero-bottom .ticker-set {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 30px;
+  padding-right: 30px;
+  white-space: nowrap;
+}
+
+/* Pure white text and symbols */
+.hero-bottom .ticker-set span,
+.hero-bottom .ticker-set i {
+  color: #FFFFFF !important;
+}
+
+.hero-bottom .ticker-set span {
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.hero-bottom .ticker-set i {
+  font-size: 19px;
+  font-style: normal;
+}
+
+/* Move exactly one complete group */
+@keyframes heroTickerLoop {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(
+      var(--ticker-shift, -1000px), 0, 0
+    );
+  }
+}
+
+/* Never pause when hovered */
+.hero-bottom .ticker:hover .ticker-track {
+  animation-play-state: running;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .hero-bottom .ticker-track {
+    height: 49px;
+  }
+
+  .hero-bottom .ticker-set {
+    gap: 22px;
+    padding-right: 22px;
+  }
+
+  .hero-bottom .ticker-set span {
+    font-size: 11px;
+  }
+
+  .hero-bottom .ticker-set i {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bottom .ticker-track {
+    animation: none !important;
+  }
+}
+
