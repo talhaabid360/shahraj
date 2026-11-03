@@ -62,12 +62,6 @@
     revealTargets.forEach(el => revealObserver.observe(el));
   } else revealTargets.forEach(el => el.classList.add('is-visible'));
 
-  const wordCircle = $('#circleMark');
-  if (wordCircle && 'IntersectionObserver' in window) {
-    new IntersectionObserver((entries, observer) => {
-      if (entries[0]?.isIntersecting) { wordCircle.classList.add('is-drawn'); observer.disconnect(); }
-    }, { threshold: .55 }).observe(wordCircle);
-  } else wordCircle?.classList.add('is-drawn');
 
   function animateCount(el) {
     const target = Number(el.dataset.count || '0');
