@@ -803,3 +803,85 @@ html, body { overflow-x: hidden; }
   height: 20px;
   padding: 0;
 }
+
+
+
+
+/* =====================================
+   SHAHRAJ — HERO INTEGRATED MARQUEE
+   ===================================== */
+
+/* Grey separator + marquee container */
+.hero-bottom {
+  display: block;
+  height: auto;
+  min-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-top: 1px solid rgba(255,255,255,0.20);
+}
+
+/* Match the separator's exact width */
+.hero-bottom .ticker {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  margin-left: calc(0px - var(--gutter));
+  margin-right: calc(0px - var(--gutter));
+
+  background: #D9BDFF;
+  border: none;
+}
+
+/* White scrolling text and symbols */
+.hero-bottom .ticker-track span,
+.hero-bottom .ticker-track i {
+  color: #FFFFFF;
+}
+
+/* Keep existing continuous marquee animation */
+.hero-bottom .ticker-track {
+  animation: marquee 37s linear infinite;
+}
+
+/* Smooth disappearance at both edges */
+.hero-bottom .ticker::before,
+.hero-bottom .ticker::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(35px, 8vw, 130px);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Left fade */
+.hero-bottom .ticker::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    #D9BDFF 0%,
+    rgba(217,189,255,0) 100%
+  );
+}
+
+/* Right fade */
+.hero-bottom .ticker::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    #D9BDFF 0%,
+    rgba(217,189,255,0) 100%
+  );
+}
+
+/* Mobile: narrower fade */
+@media (max-width: 640px) {
+  .hero-bottom .ticker::before,
+  .hero-bottom .ticker::after {
+    width: 38px;
+  }
+}
+
