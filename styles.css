@@ -1022,13 +1022,18 @@ html, body { overflow-x: hidden; }
    SHAHRAJ — MINIMAL AGENCY INTRO
    ======================================= */
 
+
+/* PURE WHITE AGENCY SECTION */
 .intro-clean {
-  /* background: #FFFFFF; */
-  .services {
   background: #FFFFFF !important;
-}
   padding-block: clamp(100px, 12vw, 170px);
 }
+
+/* PURE WHITE SERVICES SECTION */
+.services {
+  background: #FFFFFF !important;
+}
+
 
 /* Premium editorial headline */
 .intro-clean .intro-title {
