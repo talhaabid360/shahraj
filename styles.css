@@ -220,7 +220,49 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .interlude-track span { font: 800 clamp(22px,2.8vw,44px) 'Manrope',sans-serif; white-space: nowrap; letter-spacing: -.05em; }
 
 /* Numeric counters */
-.numbers { background: var(--cream); }
+/* .numbers { background: var(--cream); } */
+
+
+.numbers {
+  background:
+    radial-gradient(circle at 78% 35%, rgba(143, 84, 252, 0.18), transparent 46%),
+    radial-gradient(ellipse at 72% 49%, #31204F 0%, #1B112A 46%, #130D1F 90%);
+  color: #FFFFFF;
+  --line: rgba(250, 246, 255, 0.2);
+}
+
+.numbers .numbers-header h2 span,
+.numbers .number-block sup {
+  color: #B689FF;
+}
+
+.numbers .numbers-header p,
+.numbers .number-block p {
+  color: #C0B3CB;
+}
+
+.numbers .number-kicker {
+  color: #C6B5D7;
+}
+
+.numbers .number-block strong {
+  color: #FFFFFF;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .numbers-header, .process-header, .possibilities-head, .packages-header { display: flex; justify-content: space-between; align-items: end; gap: 50px; }
 .numbers-header h2 { font-size: clamp(4rem,6.9vw,7.1rem); }
 .numbers-header h2 span { color: var(--violet-dark); }
