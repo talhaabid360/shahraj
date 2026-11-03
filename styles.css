@@ -1023,13 +1023,12 @@ html, body { overflow-x: hidden; }
    ======================================= */
 
 
+
 .intro-clean {
-  /* background: #FFFFFF; */
-  .services {
-    background: #FFFFFF !important;
-  }
+  background: #FFFFFF;
   padding-block: clamp(100px, 12vw, 170px);
 }
+
 
 
 /* Premium editorial headline */
