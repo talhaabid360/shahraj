@@ -656,3 +656,112 @@ html, body { overflow-x: hidden; }
 
 
 
+
+
+
+
+
+
+
+/* SHAHRAJ — CINEMATIC VIDEO GLOBE REFINEMENT */
+
+/* 1. Keep one elegant orbital ring */
+.orb-ring {
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  box-shadow: 0 0 12px rgba(205, 175, 255, 0.15);
+}
+
+.orb-ring-a {
+  animation: none !important;
+  transform: rotate(-27deg) scaleX(1.34) scaleY(0.45);
+}
+
+.orb-ring-b,
+.orb-ring-c {
+  display: none !important;
+}
+
+/* 2. Add soft lighting behind the sphere */
+.orb-light {
+  background: rgba(230, 216, 255, 0.45);
+  filter: blur(75px);
+  opacity: 0.35;
+}
+
+.hero-art-halo {
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(148, 87, 225, 0.20) 35%,
+    transparent 70%
+  );
+}
+
+/* 3. Give the sphere a premium illuminated edge */
+.orb-core {
+  z-index: 2;
+  background: radial-gradient(
+    circle at 35% 30%,
+    #483064,
+    #170B28 70%,
+    #090511 100%
+  );
+  box-shadow:
+    0 0 24px rgba(255, 255, 255, 0.16),
+    0 0 75px rgba(150, 95, 235, 0.28),
+    0 30px 55px rgba(0, 0, 0, 0.4);
+}
+
+/* 4. Soften the edges of the actual video */
+.orb-video {
+  -webkit-mask-image: radial-gradient(
+    circle,
+    black 0%,
+    black 68%,
+    rgba(0,0,0,0.85) 84%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    circle,
+    black 0%,
+    black 68%,
+    rgba(0,0,0,0.85) 84%,
+    transparent 100%
+  );
+}
+
+/* 5. Remove the old artificial sphere texture */
+.orb-core::before {
+  display: none !important;
+}
+
+.orb-core::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    transparent 52%,
+    rgba(12, 4, 25, 0.22) 78%,
+    rgba(10, 3, 22, 0.55) 100%
+  );
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.24),
+    inset -18px -18px 40px rgba(0,0,0,0.35);
+}
+
+/* 6. Keep the natural cinematic highlight */
+.orb-sheen {
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 28% 20%,
+    rgba(255,255,255,0.16),
+    transparent 43%
+  );
+}
+
