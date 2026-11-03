@@ -1017,3 +1017,126 @@ html, body { overflow-x: hidden; }
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
+
+/* =======================================
+   SHAHRAJ — MINIMAL AGENCY INTRO
+   ======================================= */
+
+.intro-clean {
+  background: #FFFFFF;
+  padding-block: clamp(100px, 12vw, 170px);
+}
+
+/* Premium editorial headline */
+.intro-clean .intro-title {
+  margin: 0;
+  max-width: 1400px;
+
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(3.2rem, 7.5vw, 8.8rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.075em;
+
+  color: #180E24;
+  text-transform: uppercase;
+}
+
+/* Word being highlighted */
+.intro-clean .marker-highlight {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  text-transform: lowercase;
+  letter-spacing: -0.075em;
+
+  color: #180E24;
+}
+
+/* Organic marker stroke behind the word */
+.intro-clean .marker-highlight::before {
+  content: "";
+  position: absolute;
+
+  left: -3%;
+  right: -5%;
+  top: 49%;
+  height: 0.51em;
+
+  z-index: -1;
+
+  background: #AF86F5;
+  opacity: 0.78;
+
+  clip-path: polygon(
+    0% 15%,
+    35% 4%,
+    70% 11%,
+    100% 0%,
+    98% 90%,
+    55% 100%,
+    2% 91%
+  );
+
+  transform:
+    translateY(-10%)
+    rotate(-1.5deg)
+    scaleX(0);
+
+  transform-origin: left center;
+
+  transition: transform 1.15s
+    cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
+}
+
+/* Draw highlight when section enters viewport */
+.intro-clean .intro-title.is-visible
+.marker-highlight::before {
+  transform:
+    translateY(-10%)
+    rotate(-1.5deg)
+    scaleX(1);
+}
+
+/* Tablet */
+@media (max-width: 920px) {
+  .intro-clean {
+    padding-block: 110px;
+  }
+
+  .intro-clean .intro-title {
+    font-size: clamp(3.2rem, 8vw, 6rem);
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .intro-clean {
+    padding-block: 90px;
+  }
+
+  .intro-clean .intro-title {
+    font-size: clamp(2.5rem, 9.5vw, 4.2rem);
+    line-height: 1.12;
+    letter-spacing: -0.07em;
+  }
+
+  .intro-clean .marker-highlight::before {
+    height: 0.48em;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .intro-clean .marker-highlight::before {
+    transition: none;
+    transform:
+      translateY(-10%)
+      rotate(-1.5deg)
+      scaleX(1);
+  }
+}
