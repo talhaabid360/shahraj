@@ -745,18 +745,19 @@ html, body { overflow-x: hidden; }
   animation: shahrajWhitePulse 4s ease-in-out infinite;
 }
 
-/* Soft breathing animation */
+
 @keyframes shahrajWhitePulse {
   0%, 100% {
-    opacity: 0.35;
-    transform: scale(0.94);
+    opacity: 0.15;
+    transform: scale(0.98);
   }
 
   50% {
-    opacity: 0.90;
-    transform: scale(1.13);
+    opacity: 0.45;
+    transform: scale(1.05);
   }
 }
+
 
 /* Mobile adjustments */
 @media (max-width: 640px) {
