@@ -179,7 +179,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .service-card-copy a span { font-size: 20px; line-height: .7; }
 .carousel-controls { max-width: 555px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
 .circle-control { width: 60px; height: 60px; flex: 0 0 60px; border-radius: 50%; border: 1px solid #D9CFE3; box-shadow: 0 10px 25px #5D38801C; display: grid; place-items: center; background: #FFFBFF; font-size: 24px; color: var(--ink); transition: transform .25s, background .25s; }
-.circle-control:hover { transform: scale(1.07); background: #DCC3FF; }
+/* .circle-control:hover { transform: scale(1.07); background: #DCC3FF; } */
+.circle-control:hover { transform: scale(1.07); background: #7536E7; color: #FFFFFF; }
 .carousel-current { min-width: 0; display: flex; flex-direction: column; text-align: center; align-items: center; gap: 10px; flex: 1; }
 .carousel-current > span:first-child { font: 800 18px 'Manrope', sans-serif; }
 .carousel-current i { font: 500 12px 'DM Sans', sans-serif; color: #8E809C; }
