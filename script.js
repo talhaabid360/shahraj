@@ -121,7 +121,7 @@
   // 3D circular services carousel: arrow navigation, side-card selection, keys and swipes.
   const serviceStage = $('#serviceStage');
   const serviceCards = $$('.service-card', serviceStage || document);
-  const serviceNames = ['Podcast production','Website Development','Social Media & Content','Search Engine Optimization','AI Chatbots','Workflow Automation','Brand & Creative'];
+  const serviceNames = ['Podcast Production','Website Development','Social Media & Content','Search Engine Optimization','AI Chatbots','Workflow Automation','Brand & Creative'];
   let serviceIndex = 0;
   const mod = (n, divisor) => ((n % divisor) + divisor) % divisor;
   function setService(next) {
