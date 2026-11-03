@@ -807,81 +807,76 @@ html, body { overflow-x: hidden; }
 
 
 
-/* =====================================
-   SHAHRAJ — HERO INTEGRATED MARQUEE
-   ===================================== */
+/* SHAHRAJ — TRANSPARENT HERO MARQUEE */
 
-/* Grey separator + marquee container */
+/* Grey separator line */
 .hero-bottom {
   display: block;
   height: auto;
   min-height: 0;
-  padding-top: 0;
-  padding-bottom: 0;
+  padding: 0;
   border-top: 1px solid rgba(255,255,255,0.20);
 }
 
-/* Match the separator's exact width */
+/* Completely transparent marquee */
 .hero-bottom .ticker {
   position: relative;
-  isolation: isolate;
   overflow: hidden;
-
-  margin-left: calc(0px - var(--gutter));
-  margin-right: calc(0px - var(--gutter));
-
-  background: #D9BDFF;
+  background: transparent !important;
   border: none;
+
+  /* Stay aligned with the grey separator */
+  margin: 0;
+  width: 100%;
+
+  /* Fade text naturally into the hero background */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
 }
 
-/* White scrolling text and symbols */
+/* Pure white marquee text and symbols */
 .hero-bottom .ticker-track span,
 .hero-bottom .ticker-track i {
-  color: #FFFFFF;
+  color: #FFFFFF !important;
 }
 
-/* Keep existing continuous marquee animation */
+/* Preserve continuous scrolling */
 .hero-bottom .ticker-track {
   animation: marquee 37s linear infinite;
 }
 
-/* Smooth disappearance at both edges */
-.hero-bottom .ticker::before,
-.hero-bottom .ticker::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: clamp(35px, 8vw, 130px);
-  z-index: 2;
-  pointer-events: none;
-}
-
-/* Left fade */
-.hero-bottom .ticker::before {
-  left: 0;
-  background: linear-gradient(
-    to right,
-    #D9BDFF 0%,
-    rgba(217,189,255,0) 100%
-  );
-}
-
-/* Right fade */
-.hero-bottom .ticker::after {
-  right: 0;
-  background: linear-gradient(
-    to left,
-    #D9BDFF 0%,
-    rgba(217,189,255,0) 100%
-  );
-}
-
-/* Mobile: narrower fade */
+/* Mobile edge fade */
 @media (max-width: 640px) {
-  .hero-bottom .ticker::before,
-  .hero-bottom .ticker::after {
-    width: 38px;
+  .hero-bottom .ticker {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
   }
 }
+
 
