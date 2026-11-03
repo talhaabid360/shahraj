@@ -787,3 +787,19 @@ html, body { overflow-x: hidden; }
   display: none !important;
 }
 
+
+/* REMOVE HERO BOTTOM TEXT — KEEP DIVIDER LINE */
+
+.hero-bottom-label,
+.hero-bottom-pillars,
+.scroll-cue {
+  display: none !important;
+}
+
+/* Keep the thin separator line */
+.hero-bottom {
+  border-top: 1px solid rgba(255,255,255,0.15);
+  min-height: 0;
+  height: 20px;
+  padding: 0;
+}
