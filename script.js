@@ -262,4 +262,71 @@
       }
     }
   });
+
+
+  
+/* SEAMLESS HERO MARQUEE */
+
+const heroTicker = document.querySelector(
+  '.hero-bottom .ticker'
+);
+
+if (heroTicker) {
+  const track = heroTicker.querySelector('.ticker-track');
+  const firstSet = track?.querySelector('.ticker-set');
+
+  if (track && firstSet) {
+    function buildSeamlessTicker() {
+
+      // Remove previously generated copies
+      track.querySelectorAll(
+        '.ticker-set:not(:first-child)'
+      ).forEach(el => el.remove());
+
+      const setWidth = firstSet.getBoundingClientRect().width;
+      if (!setWidth) return;
+
+      // Generate enough copies to cover the screen
+      const copies = Math.ceil(
+        heroTicker.clientWidth / setWidth
+      ) + 2;
+
+      for (let i = 1; i < copies; i++) {
+        const clone = firstSet.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        track.appendChild(clone);
+      }
+
+      // Move exactly one group per cycle
+      track.style.setProperty(
+        '--ticker-shift',
+        `-${setWidth}px`
+      );
+
+      // Consistent scrolling speed
+      track.style.setProperty(
+        '--ticker-duration',
+        `${(setWidth / 65).toFixed(2)}s`
+      );
+
+      // Restart animation after resizing
+      track.style.animation = 'none';
+      void track.offsetWidth;
+      track.style.animation = '';
+    }
+
+    buildSeamlessTicker();
+
+    document.fonts?.ready.then(buildSeamlessTicker);
+
+    let tickerResizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(tickerResizeTimer);
+      tickerResizeTimer = setTimeout(
+        buildSeamlessTicker, 150
+      );
+    });
+  }
+}
+
 })();
