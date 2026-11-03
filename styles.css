@@ -1051,7 +1051,7 @@ html, body { overflow-x: hidden; }
   font-family: Georgia, serif;
   font-style: italic;
   font-weight: 400;
-  text-transform: lowercase;
+  text-transform: none;
   letter-spacing: -0.075em;
 
   color: #180E24;
