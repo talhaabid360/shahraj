@@ -157,7 +157,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .services { padding-bottom: 78px; background: linear-gradient(180deg,#F0EBFA 0%,#EEE8F7 52%,#F4EFF8 100%); overflow: hidden; }
 
 .section-heading-row { display: flex; justify-content: space-between; align-items: end; gap: 60px; }
-.services-title { font-size: clamp(4rem,6.8vw,7.4rem); }
+/* .services-title { font-size: clamp(4rem,6.8vw,7.4rem); } */
+.services-title { font-size: clamp(3.6rem, 6.2vw, 7rem); }
 .services-title em { color: var(--violet-dark); }
 .section-heading-row p { max-width: 345px; margin: 0 0 7px; font-size: 16px; line-height: 1.6; color: #61596B; }
 /* .service-carousel { margin-top: 75px; perspective: 1400px; } */
