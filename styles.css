@@ -1140,3 +1140,24 @@ html, body { overflow-x: hidden; }
       scaleX(1);
   }
 }
+
+
+
+/* TIGHTEN AGENCY HEADLINE LINE SPACING */
+
+.intro-clean .intro-title {
+  line-height: 0.88 !important;
+}
+
+/* Prevent italic word from adding extra height */
+.intro-clean .marker-highlight {
+  line-height: 0.88;
+  vertical-align: baseline;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .intro-clean .intro-title {
+    line-height: 0.94 !important;
+  }
+}
