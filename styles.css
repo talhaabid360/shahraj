@@ -605,3 +605,27 @@ html, body { overflow-x: hidden; }
 .hero-art .orbit-bottom-note {
   display: none !important;
 }
+
+
+/* CLEAN NAVIGATION CTA */
+
+.nav-cta {
+  padding: 17px 28px;
+  gap: 0;
+  justify-content: center;
+  border-radius: 100px;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .nav-cta {
+    padding: 12px 16px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-cta {
+    padding: 11px 13px;
+  }
+}
