@@ -766,6 +766,95 @@ html, body { overflow-x: hidden; }
   display: none !important;
 }
 
+
+/* SHAHRAJ — SLOW SOCIAL LOGO ORBIT */
+
+.social-orbit {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  --orbit-radius: min(19.5vw, 270px);
+  animation: socialOrbitSpin 80s linear infinite;
+}
+
+.social-orbit-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(46px, 4.3vw, 68px);
+  height: auto;
+  transform:
+    translate(-50%, -50%)
+    rotate(var(--angle))
+    translateX(var(--orbit-radius));
+}
+
+.social-orbit-upright {
+  display: block;
+  transform: rotate(calc(0deg - var(--angle)));
+}
+
+.social-orbit-float {
+  display: block;
+  animation: socialOrbitFloat 6s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+.social-orbit-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: socialLogoCounterSpin 80s linear infinite;
+}
+
+/* Full clockwise revolution */
+@keyframes socialOrbitSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Keep logos upright while orbiting */
+@keyframes socialLogoCounterSpin {
+  to { transform: rotate(-360deg); }
+}
+
+/* Very subtle independent floating */
+@keyframes socialOrbitFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Mobile: fit the orbit inside the screen */
+@media (max-width: 640px) {
+  .social-orbit {
+    --orbit-radius: min(42vw, 165px);
+  }
+
+  .social-orbit-item {
+    width: clamp(34px, 9vw, 42px);
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .social-orbit,
+  .social-orbit-item img,
+  .social-orbit-float {
+    animation: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /* PULSATING WHITE LIGHT BEHIND THE VIDEO */
 .orb-light {
   position: absolute;
