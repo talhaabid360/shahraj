@@ -1343,7 +1343,11 @@ html, body { overflow-x: hidden; }
 
 
 
-
+@media (max-width: 640px) {
+  .hero-desktop-break {
+    display: none;
+  }
+}
 
 
 
