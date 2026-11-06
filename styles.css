@@ -723,7 +723,31 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .hero { padding-top: 148px; }.hero-grid { display: flex; flex-direction: column; align-items: stretch; min-height: auto; padding-bottom: 30px; }.hero-copy { position: relative; z-index: 5; }.hero-eyebrow { font-size: 8px; letter-spacing: .08em; gap: 8px; margin-bottom: 26px; }.eyebrow-line { display: none; }.hero h1 { font-size: clamp(3.35rem,12.2vw,6rem); letter-spacing: -.085em; }.hero-underline { bottom: -11px; height: 23px; }.hero-underline path { stroke-width: 8; }.hero-description { font-size: 14px; line-height: 1.6; margin-top: 28px; max-width: 430px; }.hero-actions { gap: 13px; margin-top: 29px; }.button { padding-left: 16px; min-height: 49px; font-size: 11px; gap: 11px; }.button-circle { width: 34px; height: 34px; font-size: 20px; }.hero-secondary { font-size: 10px; gap: 7px; }.play-icon { width: 33px; height: 33px; }.hero-small-print { margin-top: 32px; font-size: 7px; }.hero-art { width: 100%; height: 355px; margin-top: -18px; }.hero-orbit-scene { width: min(95vw,390px); height: min(95vw,390px); }.orb-core { inset: 18%; }.floating-label { font-size: 8px; padding: 9px 12px; }.floating-label-one { left: 0; }.floating-label-two { right: 0; }.floating-label-three { right: 0; }.orbit-bottom-note { bottom: 0; right: 4px; font-size: 7px; }.sparkle { font-size: 27px; }.hero-bottom { min-height: 68px; padding-top: 12px; padding-bottom: 12px; }.hero-bottom-pillars { justify-content: space-between; flex: 1; gap: 8px; }.hero-bottom-pillars span { white-space: normal; font-size: 8px; line-height: 1.4; }.scroll-cue { width: 31px; height: 31px; flex: 0 0 31px; font-size: 18px; }
   .ticker-track { height: 49px; gap: 17px; }.ticker-track span { font-size: 10px; }.ticker-track i { font-size: 14px; }
   .display-intro { font-size: clamp(3.2rem,11vw,5rem); }.intro-side { grid-template-columns: 54px 1fr; gap: 9px; }.intro-decor { font-size: 47px; }.intro-side p { font-size: 16px; margin: 0 0 20px; }.round-text-link { font-size: 9px; }.round-arrow { width: 41px; height: 41px; }.intro-bottom { margin-top: 65px; gap: 9px; flex-wrap: wrap; line-height: 1.5; white-space: normal; font-size: 8px; }.intro-line { flex-basis: 100%; order: 5; }
-  .services-title, .process-header h2 { font-size: clamp(3.5rem,10.5vw,5rem); }.section-heading-row p { font-size: 14px; }.service-carousel { margin-top: 42px; }.service-carousel-stage { height: 577px; }.service-card { width: min(77vw,360px); height: 535px; border-radius: 19px; }.service-card .service-art { height: 45%; }.service-card-copy { height: 55%; padding: 17px 19px 19px; }.service-card h3 { font-size: clamp(31px,8vw,40px); margin: 12px 0 9px; }.service-card-copy p { font-size: 12px; line-height: 1.5; }.service-card-copy a { font-size: 9px; padding-top: 12px; }.service-card-meta { font-size: 8px; }.card-corner, .service-art-tag { font-size: 8px; }.carousel-controls { padding-inline: 28px; }.circle-control { width: 49px; height: 49px; flex-basis: 49px; }.services { padding-bottom: 66px; }
+  /* .services-title, .process-header h2 { font-size: clamp(3.5rem,10.5vw,5rem); }.section-heading-row p { font-size: 14px; }.service-carousel { margin-top: 42px; }.service-carousel-stage { height: 577px; }.service-card { width: min(77vw,360px); height: 535px; border-radius: 19px; }.service-card .service-art { height: 45%; }.service-card-copy { height: 55%; padding: 17px 19px 19px; }.service-card h3 { font-size: clamp(31px,8vw,40px); margin: 12px 0 9px; }.service-card-copy p { font-size: 12px; line-height: 1.5; }.service-card-copy a { font-size: 9px; padding-top: 12px; }.service-card-meta { font-size: 8px; }.card-corner, .service-art-tag { font-size: 8px; }.carousel-controls { padding-inline: 28px; }.circle-control { width: 49px; height: 49px; flex-basis: 49px; }.services { padding-bottom: 66px; } */
+  
+.services-title { font-size: clamp(3.5rem,10.5vw,5rem); }
+.process-header h2 { font-size: clamp(2rem,8vw,3.6rem); }
+.process-header p { white-space: normal; font-size: 14px; }
+
+.section-heading-row p { font-size: 14px; }
+.service-carousel { margin-top: 42px; }
+.service-carousel-stage { height: 577px; }
+.service-card { width: min(77vw,360px); height: 535px; border-radius: 19px; }
+.service-card .service-art { height: 45%; }
+.service-card-copy { height: 55%; padding: 17px 19px 19px; }
+.service-card h3 { font-size: clamp(31px,8vw,40px); margin: 12px 0 9px; }
+.service-card-copy p { font-size: 12px; line-height: 1.5; }
+.service-card-copy a { font-size: 9px; padding-top: 12px; }
+.service-card-meta { font-size: 8px; }
+.card-corner, .service-art-tag { font-size: 8px; }
+.carousel-controls { padding-inline: 28px; }
+.circle-control { width: 49px; height: 49px; flex-basis: 49px; }
+.services { padding-bottom: 66px; }
+
+
+
+
+  
   .ecosystem h2 { font-size: clamp(3.05rem,9.9vw,5.8rem); }.ecosystem-copy > p { font-size: 14px; }.ecosystem-visual { width: 100%; aspect-ratio: 1 / 1.12; max-width: 500px; margin-top: 26px; }.ecosystem-sphere { inset: 14% 10%; }.ecosystem-orbit-ring { inset: 8% 2%; }.orbit-option { font-size: 12px; padding: 7px 10px; }.orbit-option-a { top: 3%; left: 40%; }.orbit-option-b { top: 13%; left: -2%; }.orbit-option-c { top: 13%; right: -2%; }.orbit-option-d { bottom: 26%; left: -2%; }.orbit-option-e { bottom: 26%; right: -1%; }.orbit-option-f { bottom: 9%; left: 47%; }.sphere-caption { bottom: -1%; font-size: 7px; }
   .numbers-header h2, .possibilities-head h2 { font-size: clamp(3.4rem,10.7vw,5.8rem); }.numbers-header p, .process-header p, .possibilities-head p, .packages-header p { font-size: 14px; }.numbers-grid { margin-top: 0; }.number-block { padding: 23px 12px 20px; }.number-block:nth-child(2n+1) { padding-left: 0; }.number-block strong { font-size: clamp(3.65rem,13vw,6.5rem); }.number-block p { font-size: 11px; }.number-kicker { font-size: 8px; }
   /* .process-grid { grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 48px; }.process-step { min-height: 310px; padding: 16px 15px; }.step-icon { margin: 30px 0 24px; font-size: 35px; }.process-step h3 { font-size: 21px; }.process-step p { font-size: 11px; line-height: 1.6; } */
