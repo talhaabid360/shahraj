@@ -297,13 +297,95 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   background: #EAE5F0;
 }
 
-.process-header h2 {
+/* .process-header h2 {
   font-size: clamp(4rem, 6.6vw, 7.4rem);
 }
 
 .process-header em {
   color: #7241D0;
+} */
+
+
+
+/* Process heading — two lines with marker effect */
+
+.process-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
 }
+
+.process-header h2 {
+  font-size: clamp(3.8rem, 6.3vw, 7rem);
+  line-height: 1.06;
+}
+
+.process-header p {
+  max-width: none;
+  margin: 0;
+  white-space: nowrap;
+  font-size: clamp(12px, 1vw, 15px);
+  line-height: 1.6;
+}
+
+/* Same purple marker style as Agency */
+.process-marker {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.075em;
+  color: #180E24;
+}
+
+.process-marker::before {
+  content: "";
+  position: absolute;
+  left: -3%;
+  right: -5%;
+  top: 49%;
+  height: 0.51em;
+  z-index: -1;
+
+  background: #AF86F5;
+  opacity: 0.78;
+
+  clip-path: polygon(
+    0% 15%, 35% 4%, 70% 11%,
+    100% 0%, 98% 90%, 55% 100%, 2% 91%
+  );
+
+  transform: translateY(-10%) rotate(-1.5deg) scaleX(0);
+  transform-origin: left center;
+  transition: transform 1.15s
+    cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
+}
+
+.process-header h2.is-visible .process-marker::before {
+  transform: translateY(-10%) rotate(-1.5deg) scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .process-marker::before {
+    transition: none;
+    transform: translateY(-10%) rotate(-1.5deg) scaleX(1);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 .process-grid {
   margin-top: 82px;
