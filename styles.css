@@ -633,6 +633,68 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   white-space:nowrap;
   text-shadow:0 2px 6px rgba(0,0,0,.85);
 }
+
+
+
+/* Only the portrait and name move */
+.client-gallery-panel {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: #281733;
+  will-change: transform;
+}
+
+.client-gallery-panel::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 34% 0 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(19,8,30,.17) 32%,
+    rgba(13,5,22,.92)
+  );
+}
+
+.client-gallery-stage.is-swap-enabled
+.client-gallery-card::after {
+  content: none;
+}
+
+.client-gallery-stage.is-swap-enabled
+.client-gallery-card figcaption {
+  right: 5%;
+}
+
+.client-gallery-stage.is-swap-enabled
+.client-gallery-name {
+  max-width: 100%;
+  white-space: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .client-gallery-panel {
+    transition: none !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Entrance as soon as this section scrolls into view. */
 /* .client-gallery-stage.is-ready:not(.is-in-view) .client-gallery-card {
   opacity:0;
