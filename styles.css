@@ -571,12 +571,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   height: var(--slot-h);
   margin: 0;
   z-index: 1;
-  overflow: visible;
+  overflow: hidden;
   border: 1px solid rgba(216,151,252,.8);
   background: #281733;
   box-shadow: 0 18px 44px rgba(5,1,11,.42);
   transform: rotate(var(--slot-rotate));
-  transition:
+  /* transition:
     left 1.65s cubic-bezier(.22,.81,.2,1),
     top 1.65s cubic-bezier(.22,.81,.2,1),
     width 1.65s cubic-bezier(.22,.81,.2,1),
@@ -584,7 +584,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     transform 1.65s cubic-bezier(.22,.81,.2,1),
     box-shadow .35s ease,
     opacity .85s ease;
-  will-change: left,top,transform;
+  will-change: left,top,transform; */
+  transition: opacity .8s ease, box-shadow .35s ease;
 }
 .client-gallery-card img {
   display:block;
