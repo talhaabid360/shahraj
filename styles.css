@@ -634,9 +634,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   text-shadow:0 2px 6px rgba(0,0,0,.85);
 }
 /* Entrance as soon as this section scrolls into view. */
-.client-gallery-stage.is-ready:not(.is-in-view) .client-gallery-card {
+/* .client-gallery-stage.is-ready:not(.is-in-view) .client-gallery-card {
   opacity:0;
   transform:translateY(35px) rotate(var(--slot-rotate));
+} */
+.client-gallery-stage.is-ready:not(.is-in-view) .client-gallery-card {
+  opacity: 0;
 }
 .client-gallery-stage.is-in-view .client-gallery-card { opacity:1; }
 .client-gallery-stage.is-in-view .client-gallery-card:nth-child(1) { transition-delay: 0ms; }
