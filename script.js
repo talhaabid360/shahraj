@@ -466,7 +466,8 @@ if (partnershipStage) {
   let visible = false;
   let hovered = false;
   let timer = null;
-  let turn = 0;
+  // let turn = 0;
+  let currentOrder = clients.map((_, index) => index);
 
   const translate = (x, y) => `translate3d(${x}, ${y}, 0)`;
 
