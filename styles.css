@@ -1458,7 +1458,7 @@ html, body { overflow-x: hidden; }
   left: 5%;
   border-radius: 50%;
 
-  background: radial-gradient(
+  /* background: radial-gradient(
     circle,
     #FFFFFF 0%,
     #F4EEFF 35%,
@@ -1466,6 +1466,18 @@ html, body { overflow-x: hidden; }
     rgba(175,120,255,0.30) 80%,
     transparent 100%
   );
+  */
+
+  
+background: radial-gradient(
+  circle,
+  #F6FBE9 0%,
+  #DCE9BE 35%,
+  rgba(220,233,190,0.65) 60%,
+  rgba(220,233,190,0.22) 80%,
+  transparent 100%
+);
+
 
   filter: blur(38px);
   transform-origin: center;
