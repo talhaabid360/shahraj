@@ -501,12 +501,44 @@ if (partnershipStage) {
     setTimeout(() => outgoing.remove(), 1000);
   }
 
-  function cycleClients() {
-    turn = (turn + 1) % clients.length;
-    frames.forEach((frame, slot) => {
-      changeContents(frame, clients[(slot + turn) % clients.length], directions[slot]);
-    });
-  }
+  // function cycleClients() {
+  //   turn = (turn + 1) % clients.length;
+  //   frames.forEach((frame, slot) => {
+  //     changeContents(frame, clients[(slot + turn) % clients.length], directions[slot]);
+  //   });
+  // }
+
+  
+function cycleClients() {
+  let nextOrder;
+
+  // Randomly redistribute all seven clients.
+  do {
+    nextOrder = [...currentOrder];
+
+    for (let i = nextOrder.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+
+      [nextOrder[i], nextOrder[j]] =
+        [nextOrder[j], nextOrder[i]];
+    }
+  } while (
+    nextOrder.some((clientIndex, frameIndex) =>
+      clientIndex === currentOrder[frameIndex]
+    )
+  );
+
+  frames.forEach((frame, slot) => {
+    changeContents(
+      frame,
+      clients[nextOrder[slot]],
+      directions[slot]
+    );
+  });
+
+  currentOrder = nextOrder;
+}
+
 
   function updateTimer() {
     if (timer !== null) clearInterval(timer);
