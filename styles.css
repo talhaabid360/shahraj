@@ -512,7 +512,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   position: relative;
   display: grid;
   grid-template-columns: minmax(0,.74fr) minmax(0,1.55fr);
-  gap: clamp(14px,2.8vw,45px);
+  /* gap: clamp(14px,2.8vw,45px); */
+  gap: clamp(64px,5.5vw,96px);
   align-items: center;
   max-width: 1610px;
 }
@@ -525,7 +526,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 .client-partnerships-heading {
   margin: 0;
-  font: 800 clamp(3.1rem,4.85vw,6.35rem)/1.00 'Manrope',Arial,sans-serif;
+  /* font: 800 clamp(3.1rem,4.85vw,6.35rem)/1.00 'Manrope',Arial,sans-serif; */
+  font: 800 clamp(2.7rem,4.25vw,5.25rem)/1.00 'Manrope',Arial,sans-serif;
   letter-spacing: -.085em;
   color: #fffaf5;
 }
@@ -533,7 +535,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   display: inline-block;
   position: relative;
   margin-top: .09em;
-  font: italic 400 1.06em/.98 Georgia,serif;
+  /* font: italic 400 1.06em/.98 Georgia,serif; */
+  font: italic 400 1.02em/.98 Georgia,serif;
   letter-spacing: -.084em;
   color: #c58bea;
 }
