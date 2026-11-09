@@ -544,7 +544,7 @@ function cycleClients() {
     if (timer !== null) clearInterval(timer);
     timer = null;
     if (!visible || hovered || !desktop.matches || reducedMotion.matches || document.hidden) return;
-    timer = setInterval(cycleClients, 4000);
+    timer = setInterval(cycleClients, 6000);
   }
 
   if ('IntersectionObserver' in window) {
