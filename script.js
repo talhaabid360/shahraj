@@ -329,90 +329,209 @@ if (heroTicker) {
   }
 }
 
-// CLIENT PARTNERSHIPS — paste inside the existing (() => { ... })(); in script.js
-// The portraits, cream name labels, and captions MOVE TOGETHER between the seven fixed positions.
+// // CLIENT PARTNERSHIPS — paste inside the existing (() => { ... })(); in script.js
+// // The portraits, cream name labels, and captions MOVE TOGETHER between the seven fixed positions.
+// const partnershipSection = document.querySelector('.client-partnerships');
+// const partnershipStage = partnershipSection?.querySelector('.client-gallery-stage');
+
+// if (partnershipStage) {
+//   const clientFrames = [...partnershipStage.querySelectorAll('.client-gallery-card')];
+//   // Matches the reference: three upper frames and four lower frames.
+//   const clientSlots = [
+//     { x: '6%',  y: '6%',  w: '28%', h: '48%', angle: '-3deg' },
+//     { x: '38%', y: '11%', w: '30%', h: '43%', angle: '2deg' },
+//     { x: '72%', y: '7%',  w: '27%', h: '47%', angle: '3deg' },
+//     { x: '0%',  y: '57%', w: '24%', h: '38%', angle: '-4deg' },
+//     { x: '26%', y: '55%', w: '28%', h: '43%', angle: '2deg' },
+//     { x: '56%', y: '54%', w: '24%', h: '41%', angle: '-2deg' },
+//     { x: '82%', y: '57%', w: '20%', h: '38%', angle: '3deg' }
+//   ];
+//   // Clockwise path: upper-left > upper-middle > upper-right > lower-right,
+//   // then left across the bottom and back UP to upper-left.
+//   const nextClientSlot = [1, 2, 6, 0, 3, 4, 5];
+//   const clientDesktop = window.matchMedia('(min-width: 701px)');
+//   const clientReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+//   let clientGalleryVisible = false;
+//   let clientGalleryPaused = false;
+//   let clientRotationTimer = null;
+
+//   function moveClientFrame(frame, destination) {
+//     const p = clientSlots[destination];
+//     frame.dataset.slot = String(destination);
+//     frame.style.left = p.x;
+//     frame.style.top = p.y;
+//     frame.style.width = p.w;
+//     frame.style.height = p.h;
+//     frame.style.setProperty('--slot-rotate', p.angle);
+//     // The label is inside the figure, so it travels with its actual portrait.
+//   }
+
+//   function rotateClientGallery() {
+//     clientFrames.forEach((frame, index) => {
+//       const currentSlot = Number(frame.dataset.slot || 0);
+//       moveClientFrame(frame, nextClientSlot[currentSlot]);
+//     });
+//   }
+
+//   function stopClientGallery() {
+//     if (clientRotationTimer !== null) {
+//       clearInterval(clientRotationTimer);
+//       clientRotationTimer = null;
+//     }
+//   }
+
+//   function syncClientGallery() {
+//     stopClientGallery();
+//     if (!clientGalleryVisible || clientGalleryPaused || !clientDesktop.matches ||
+//         clientReduceMotion.matches || document.hidden) return;
+//     // Deliberately slow: 6.5-second hold, 1.65-second movement per transition.
+//     clientRotationTimer = setInterval(rotateClientGallery, 7900);
+//   }
+
+//   partnershipStage.classList.add('is-ready');
+//   if ('IntersectionObserver' in window) {
+//     const clientGalleryObserver = new IntersectionObserver(entries => {
+//       clientGalleryVisible = entries[0]?.isIntersecting || false;
+//       partnershipStage.classList.toggle('is-in-view', clientGalleryVisible);
+//       syncClientGallery();
+//     }, {threshold: 0.18});
+//     clientGalleryObserver.observe(partnershipSection);
+//   } else {
+//     clientGalleryVisible = true;
+//     partnershipStage.classList.add('is-in-view');
+//   }
+
+//   partnershipStage.addEventListener('mouseenter', () => {
+//     clientGalleryPaused = true;
+//     syncClientGallery();
+//   });
+//   partnershipStage.addEventListener('mouseleave', () => {
+//     clientGalleryPaused = false;
+//     syncClientGallery();
+//   });
+//   document.addEventListener('visibilitychange', syncClientGallery);
+//   clientDesktop.addEventListener('change', syncClientGallery);
+//   clientReduceMotion.addEventListener('change', syncClientGallery);
+//   syncClientGallery();
+// }
+
+  
+
+
+  // CLIENT PARTNERSHIPS — fixed portrait frames, changing content.
+// Replace the old CLIENT PARTNERSHIPS block in script.js with this code.
 const partnershipSection = document.querySelector('.client-partnerships');
 const partnershipStage = partnershipSection?.querySelector('.client-gallery-stage');
 
 if (partnershipStage) {
-  const clientFrames = [...partnershipStage.querySelectorAll('.client-gallery-card')];
-  // Matches the reference: three upper frames and four lower frames.
-  const clientSlots = [
-    { x: '6%',  y: '6%',  w: '28%', h: '48%', angle: '-3deg' },
-    { x: '38%', y: '11%', w: '30%', h: '43%', angle: '2deg' },
-    { x: '72%', y: '7%',  w: '27%', h: '47%', angle: '3deg' },
-    { x: '0%',  y: '57%', w: '24%', h: '38%', angle: '-4deg' },
-    { x: '26%', y: '55%', w: '28%', h: '43%', angle: '2deg' },
-    { x: '56%', y: '54%', w: '24%', h: '41%', angle: '-2deg' },
-    { x: '82%', y: '57%', w: '20%', h: '38%', angle: '3deg' }
-  ];
-  // Clockwise path: upper-left > upper-middle > upper-right > lower-right,
-  // then left across the bottom and back UP to upper-left.
-  const nextClientSlot = [1, 2, 6, 0, 3, 4, 5];
-  const clientDesktop = window.matchMedia('(min-width: 701px)');
-  const clientReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let clientGalleryVisible = false;
-  let clientGalleryPaused = false;
-  let clientRotationTimer = null;
+  const frames = [...partnershipStage.querySelectorAll('.client-gallery-card')];
+  const clients = frames.map((frame) => {
+    const image = frame.querySelector('img');
+    return {
+      src: image.getAttribute('src'),
+      alt: image.alt,
+      name: frame.querySelector('.client-gallery-name').textContent.trim(),
+      focus: frame.style.getPropertyValue('--portrait-focus').trim() || 'center'
+    };
+  });
 
-  function moveClientFrame(frame, destination) {
-    const p = clientSlots[destination];
-    frame.dataset.slot = String(destination);
-    frame.style.left = p.x;
-    frame.style.top = p.y;
-    frame.style.width = p.w;
-    frame.style.height = p.h;
-    frame.style.setProperty('--slot-rotate', p.angle);
-    // The label is inside the figure, so it travels with its actual portrait.
+  // Wrap the existing portrait and its name together. Frame dimensions/position
+  // remain controlled by the HTML's --slot-* properties and NEVER change.
+  frames.forEach((frame) => {
+    const panel = document.createElement('div');
+    panel.className = 'client-gallery-panel';
+    panel.append(frame.querySelector('img'), frame.querySelector('figcaption'));
+    panel.style.setProperty('--portrait-focus', frame.style.getPropertyValue('--portrait-focus'));
+    frame.appendChild(panel);
+  });
+
+  partnershipStage.classList.add('is-swap-enabled', 'is-ready');
+
+  // Incoming direction per FIXED frame, not a circular movement of frames.
+  const directions = ['right', 'down', 'left', 'up', 'right', 'left', 'down'];
+  const entry = {
+    right: ['105%', '0%'],
+    left: ['-105%', '0%'],
+    up: ['0%', '-105%'],
+    down: ['0%', '105%']
+  };
+  const exit = {
+    right: ['-105%', '0%'],
+    left: ['105%', '0%'],
+    up: ['0%', '105%'],
+    down: ['0%', '-105%']
+  };
+  const desktop = window.matchMedia('(min-width: 701px)');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let visible = false;
+  let hovered = false;
+  let timer = null;
+  let turn = 0;
+
+  const translate = (x, y) => `translate3d(${x}, ${y}, 0)`;
+
+  function changeContents(frame, client, direction) {
+    const outgoing = frame.querySelector('.client-gallery-panel');
+    const incoming = outgoing.cloneNode(true);
+    const [x, y] = entry[direction];
+    const [outX, outY] = exit[direction];
+
+    const img = incoming.querySelector('img');
+    img.src = client.src;
+    img.alt = client.alt;
+    img.decoding = 'async';
+    incoming.querySelector('.client-gallery-name').textContent = client.name;
+    incoming.style.setProperty('--portrait-focus', client.focus);
+
+    incoming.style.transition = 'none';
+    incoming.style.transform = translate(x, y);
+    incoming.style.zIndex = '2';
+    outgoing.style.zIndex = '1';
+    frame.appendChild(incoming);
+
+    // Animate the image AND its label as one layer inside a stationary frame.
+    void incoming.offsetWidth;
+    requestAnimationFrame(() => {
+      incoming.style.transition = 'transform 950ms cubic-bezier(.25,.75,.25,1)';
+      outgoing.style.transition = 'transform 950ms cubic-bezier(.25,.75,.25,1)';
+      incoming.style.transform = translate('0%', '0%');
+      outgoing.style.transform = translate(outX, outY);
+    });
+    setTimeout(() => outgoing.remove(), 1000);
   }
 
-  function rotateClientGallery() {
-    clientFrames.forEach((frame, index) => {
-      const currentSlot = Number(frame.dataset.slot || 0);
-      moveClientFrame(frame, nextClientSlot[currentSlot]);
+  function cycleClients() {
+    turn = (turn + 1) % clients.length;
+    frames.forEach((frame, slot) => {
+      changeContents(frame, clients[(slot + turn) % clients.length], directions[slot]);
     });
   }
 
-  function stopClientGallery() {
-    if (clientRotationTimer !== null) {
-      clearInterval(clientRotationTimer);
-      clientRotationTimer = null;
-    }
+  function updateTimer() {
+    if (timer !== null) clearInterval(timer);
+    timer = null;
+    if (!visible || hovered || !desktop.matches || reducedMotion.matches || document.hidden) return;
+    timer = setInterval(cycleClients, 7000);
   }
 
-  function syncClientGallery() {
-    stopClientGallery();
-    if (!clientGalleryVisible || clientGalleryPaused || !clientDesktop.matches ||
-        clientReduceMotion.matches || document.hidden) return;
-    // Deliberately slow: 6.5-second hold, 1.65-second movement per transition.
-    clientRotationTimer = setInterval(rotateClientGallery, 7900);
-  }
-
-  partnershipStage.classList.add('is-ready');
   if ('IntersectionObserver' in window) {
-    const clientGalleryObserver = new IntersectionObserver(entries => {
-      clientGalleryVisible = entries[0]?.isIntersecting || false;
-      partnershipStage.classList.toggle('is-in-view', clientGalleryVisible);
-      syncClientGallery();
-    }, {threshold: 0.18});
-    clientGalleryObserver.observe(partnershipSection);
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      partnershipStage.classList.toggle('is-in-view', visible);
+      updateTimer();
+    }, { threshold: 0.15 });
+    observer.observe(partnershipSection);
   } else {
-    clientGalleryVisible = true;
+    visible = true;
     partnershipStage.classList.add('is-in-view');
   }
 
-  partnershipStage.addEventListener('mouseenter', () => {
-    clientGalleryPaused = true;
-    syncClientGallery();
-  });
-  partnershipStage.addEventListener('mouseleave', () => {
-    clientGalleryPaused = false;
-    syncClientGallery();
-  });
-  document.addEventListener('visibilitychange', syncClientGallery);
-  clientDesktop.addEventListener('change', syncClientGallery);
-  clientReduceMotion.addEventListener('change', syncClientGallery);
-  syncClientGallery();
+  partnershipStage.addEventListener('mouseenter', () => { hovered = true; updateTimer(); });
+  partnershipStage.addEventListener('mouseleave', () => { hovered = false; updateTimer(); });
+  document.addEventListener('visibilitychange', updateTimer);
+  desktop.addEventListener('change', updateTimer);
+  reducedMotion.addEventListener('change', updateTimer);
+  updateTimer();
 }
 
 
