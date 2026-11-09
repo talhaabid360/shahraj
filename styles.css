@@ -1942,6 +1942,52 @@ html, body { overflow-x: hidden; }
 }
 
 
+/* SHAHRAJ — SUBTLE CONTRAST ACCENT */
+
+:root {
+  --lime: #DCE9BE;
+}
+
+/* Keep the hero's little accent soft */
+.pulse-dot {
+  background: var(--lime);
+  box-shadow: 0 0 0 6px rgba(220,233,190,.14);
+}
+
+/* Premium navigation hover */
+.nav-cta:hover {
+  background: var(--lime);
+  color: #24132F;
+}
+
+/* Service carousel arrows */
+.circle-control:hover {
+  background: var(--lime);
+  color: #24132F;
+}
+
+/* Highlight the featured partnership */
+.featured-tag {
+  background: var(--lime);
+  color: #24132F;
+}
+
+/* Small newsletter action */
+.newsletter-input-wrap button {
+  background: var(--lime);
+  color: #24132F;
+}
+
+/* A gentle color break before the contact section */
+.final-cta {
+  background: #E5EED0;
+  color: #24132F;
+}
+
+.final-cta:hover {
+  background: #DCE9BE;
+}
+
 
 
 
