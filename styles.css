@@ -76,7 +76,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .hero-outline { -webkit-text-stroke: 1.4px #DED0F3; color: transparent; }
 .hero-final { position: relative; display: inline-block; background: linear-gradient(96deg,#FFF9F3 0%,#D8C2FF 80%); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .hero-underline { position: absolute; bottom: -19px; width: 92%; height: 38px; left: 4%; overflow: visible; }
-.hero-underline path { fill: none; stroke: #A76CFF; stroke-width: 7; stroke-linecap: round; }
+/* .hero-underline path { fill: none; stroke: #A76CFF; stroke-width: 7; stroke-linecap: round; } */
+
+.hero-underline path {
+  fill: none;
+  stroke: var(--accent-soft);
+  stroke-width: 7;
+  stroke-linecap: round;
+}
 .hero-description { margin: 46px 0 26px; max-width: 640px; color: #D4C9DD; font-size: clamp(15px, 1.15vw, 18px); line-height: 1.65; letter-spacing: -.01em; }
 .hero-description strong { color: #FFF9F3; font-weight: 600; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 28px; align-items: center; margin-top: 34px; }
