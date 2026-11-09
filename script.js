@@ -493,12 +493,12 @@ if (partnershipStage) {
     // Animate the image AND its label as one layer inside a stationary frame.
     void incoming.offsetWidth;
     requestAnimationFrame(() => {
-      incoming.style.transition = 'transform 500ms cubic-bezier(.25,.75,.25,1)';
-      outgoing.style.transition = 'transform 500ms cubic-bezier(.25,.75,.25,1)';
+      incoming.style.transition = 'transform 600ms cubic-bezier(.25,.75,.25,1)';
+      outgoing.style.transition = 'transform 600ms cubic-bezier(.25,.75,.25,1)';
       incoming.style.transform = translate('0%', '0%');
       outgoing.style.transform = translate(outX, outY);
     });
-    setTimeout(() => outgoing.remove(), 550);
+    setTimeout(() => outgoing.remove(), 600);
   }
 
   // function cycleClients() {
@@ -544,7 +544,7 @@ function cycleClients() {
     if (timer !== null) clearInterval(timer);
     timer = null;
     if (!visible || hovered || !desktop.matches || reducedMotion.matches || document.hidden) return;
-    timer = setInterval(cycleClients, 3000);
+    timer = setInterval(cycleClients, 4000);
   }
 
   if ('IntersectionObserver' in window) {
