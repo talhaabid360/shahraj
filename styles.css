@@ -57,12 +57,19 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   border-radius: 50%;
   pointer-events: none;
 
-  background: radial-gradient(
+  /* background: radial-gradient(
     circle,
     rgba(217, 232, 154, 0.18) 0%,
     rgba(217, 232, 154, 0.05) 40%,
     transparent 70%
-  );
+  ); */
+
+  background: radial-gradient(
+  circle,
+  rgba(245, 106, 53, 0.25) 0%,
+  rgba(245, 106, 53, 0.10) 40%,
+  transparent 70%
+);
 
   translate: -50% -50%;
   opacity: 0;
