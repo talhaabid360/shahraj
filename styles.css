@@ -80,7 +80,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 .hero-underline path {
   fill: none;
-  stroke: var(--accent-soft);
+  /* stroke: var(--accent-soft); */
+  stroke: #B7CE3B;
   stroke-width: 7;
   stroke-linecap: round;
 }
