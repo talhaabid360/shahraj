@@ -1985,7 +1985,7 @@ background: radial-gradient(
 .nav-cta:hover {
   background: #B7CE3B;
   color: #21132E;
-  transform: translateY(-2px);
+  transform: translateY(-4px);
 }
 
 /* Service carousel arrows */
