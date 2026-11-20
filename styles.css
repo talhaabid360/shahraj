@@ -1872,10 +1872,10 @@ background: radial-gradient(
 
   z-index: -1;
 
-  /* background: #AF86F5; */
+  background: #AF86F5;
   /* background: #B7CE3B; */
-  
-  background: #F56A35;
+  /* 
+  background: #F56A35; */
 
   opacity: 0.78;
 
