@@ -2051,7 +2051,7 @@ background: radial-gradient(
 
 @media (hover: hover) and (pointer: fine) {
   .hero {
-    --hero-cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='48' viewBox='0 0 42 48'%3E%3Cpath d='M4 3 L4 40 L14 31 L22 45 L29 41 L22 27 L37 27 Z' fill='%23B7CE3B' stroke='%230B0B0B' stroke-width='3.5' stroke-linejoin='round'/%3E%3C/svg%3E") 4 3, auto;
+    --hero-cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='34' viewBox='0 0 42 48'%3E%3Cpath d='M4 3 L4 40 L14 31 L22 45 L29 41 L22 27 L37 27 Z' fill='%23B7CE3B' stroke='%230B0B0B' stroke-width='3.5' stroke-linejoin='round'/%3E%3C/svg%3E") 4 3, auto;
   }
 
   .hero,
