@@ -59,7 +59,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
   background: radial-gradient(
     circle,
-    rgba(217, 232, 154, 0.12) 0%,
+    rgba(217, 232, 154, 0.30) 0%,
     rgba(217, 232, 154, 0.05) 40%,
     transparent 70%
   );
