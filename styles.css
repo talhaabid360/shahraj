@@ -45,7 +45,33 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .skip-link:focus { top: 15px; }
 .page-progress { position: fixed; z-index: 160; height: 3px; top: 0; left: 0; width: 100%; pointer-events: none; }
 .page-progress span { display: block; width: 0; height: 100%; background: linear-gradient(90deg,#B988FF,#E8FFC7); }
-.cursor-glow { position: fixed; width: 420px; height: 420px; z-index: 100; border-radius: 50%; pointer-events: none; background: radial-gradient(circle,rgba(157,99,255,.075),transparent 65%); translate: -50% -50%; opacity: 0; transition: opacity .4s ease; mix-blend-mode: screen; }
+/* .cursor-glow { position: fixed; width: 420px; height: 420px; z-index: 100; border-radius: 50%; pointer-events: none; background: radial-gradient(circle,rgba(157,99,255,.075),transparent 65%); translate: -50% -50%; opacity: 0; transition: opacity .4s ease; mix-blend-mode: screen; } */
+
+
+
+.cursor-glow {
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  z-index: 100;
+  border-radius: 50%;
+  pointer-events: none;
+
+  background: radial-gradient(
+    circle,
+    rgba(217, 232, 154, 0.12) 0%,
+    rgba(217, 232, 154, 0.05) 40%,
+    transparent 70%
+  );
+
+  translate: -50% -50%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  mix-blend-mode: screen;
+}
+
+
+
 
 /* Floating navigation */
 .site-header { position: fixed; top: clamp(12px, 1.7vw, 24px); left: 0; width: 100%; z-index: 130; padding-inline: clamp(13px, 3.1vw, 50px); transition: top .3s ease; }
