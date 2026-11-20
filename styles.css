@@ -107,7 +107,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
   /* Gently move the existing gradient */
   background-size: 118% 118%;
-  animation: heroGradientDrift 18s ease-in-out infinite alternate;
+  animation: heroGradientDrift 4s ease-in-out infinite alternate;
 
   padding-top: clamp(154px, 14vw, 205px);
   min-height: max(760px, 100svh);
