@@ -89,66 +89,59 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .menu-toggle { display: none; }
 
 /* Hero */
-.hero { isolation: isolate; position: relative; overflow: hidden; background: radial-gradient(circle at 82% 44%,#43235E 0%,#20102C 36%,#130B1D 73%); padding-top: clamp(154px, 14vw, 205px); min-height: max(760px, 100svh); }
-.hero .grain { pointer-events: none; position: absolute; inset: 0; z-index: -1; opacity: .11; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.74' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.43'/%3E%3C/svg%3E"); }
-.hero-aura { position: absolute; border-radius: 50%; filter: blur(75px); pointer-events: none; z-index: -1; }
-/* .hero-aura-one { width: 620px; height: 620px; background: #6E2FAD; opacity: .2; top: -240px; right: -150px; }
-.hero-aura-two { width: 450px; height: 450px; background: #A35DF0; opacity: .11; bottom: -280px; left: -150px; } */
+/* .hero { isolation: isolate; position: relative; overflow: hidden; background: radial-gradient(circle at 82% 44%,#43235E 0%,#20102C 36%,#130B1D 73%); padding-top: clamp(154px, 14vw, 205px); min-height: max(760px, 100svh); } */
 
 
-/* HERO — PREMIUM FLOWING BACKGROUND */
+.hero {
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: -25%;
-  z-index: 0;
-  pointer-events: none;
+  /* ORIGINAL COLORS — UNCHANGED */
+  background: radial-gradient(
+    circle at 82% 44%,
+    #43235E 0%,
+    #20102C 36%,
+    #130B1D 73%
+  );
 
-  background:
-    radial-gradient(
-      ellipse at 74% 35%,
-      rgba(172, 103, 245, 0.48) 0%,
-      rgba(127, 62, 197, 0.22) 30%,
-      transparent 58%
-    ),
-    radial-gradient(
-      ellipse at 18% 76%,
-      rgba(122, 66, 191, 0.40) 0%,
-      transparent 52%
-    );
+  /* Gently move the existing gradient */
+  background-size: 118% 118%;
+  animation: heroGradientDrift 18s ease-in-out infinite alternate;
 
-  filter: blur(36px);
-
-  animation: shahrajHeroFlow 13s
-    ease-in-out infinite alternate;
-
-  will-change: transform;
+  padding-top: clamp(154px, 14vw, 205px);
+  min-height: max(760px, 100svh);
 }
 
-@keyframes shahrajHeroFlow {
+@keyframes heroGradientDrift {
   0% {
-    transform: translate3d(-8%, -5%, 0)
-      scale(1);
-  }
-
-  50% {
-    transform: translate3d(9%, 6%, 0)
-      scale(1.12);
+    background-position: 15% 50%;
   }
 
   100% {
-    transform: translate3d(-4%, 11%, 0)
-      scale(1.05);
+    background-position: 85% 45%;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero::before {
+  .hero {
     animation: none;
-    transform: none;
+    background-position: center;
   }
 }
+
+
+.hero .grain { pointer-events: none; position: absolute; inset: 0; z-index: -1; opacity: .11; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.74' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.43'/%3E%3C/svg%3E"); }
+.hero-aura { position: absolute; border-radius: 50%; filter: blur(75px); pointer-events: none; z-index: -1; }
+/* .hero-aura-one { width: 620px; height: 620px; background: #6E2FAD; opacity: .2; top: -240px; right: -150px; }
+.hero-aura-two { width: 450px; height: 450px; background: #A35DF0; opacity: .11; bottom: -280px; left: -150px; } */
+/* Hide the original static background light circles */
+.hero-aura-one,
+.hero-aura-two {
+  display: none;
+}
+
+
 
 
 
