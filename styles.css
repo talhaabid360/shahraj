@@ -1997,8 +1997,10 @@ background: radial-gradient(
 
 /* Keep the hero's little accent soft */
 .pulse-dot {
-  background: var(--lime);
-  box-shadow: 0 0 0 6px rgba(220,233,190,.14);
+  /* background: var(--lime);
+  box-shadow: 0 0 0 6px rgba(220,233,190,.14); */
+  background: #B7CE3B;
+  box-shadow: 0 0 0 6px rgba(183, 206, 59, 0.18);
 }
 
 /* Premium navigation hover */
