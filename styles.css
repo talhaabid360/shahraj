@@ -1872,7 +1872,8 @@ background: radial-gradient(
 
   z-index: -1;
 
-  background: #AF86F5;
+  /* background: #AF86F5; */
+  background: #B7CE3B;
   opacity: 0.78;
 
   clip-path: polygon(
