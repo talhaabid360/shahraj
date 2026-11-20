@@ -1179,7 +1179,7 @@ html, body { overflow-x: hidden; }
 .nav-links a:hover,
 .nav-links a:focus-visible {
   color: #FFFFFF;
-  transform: translateY(-3px);
+  transform: translateY(-5px);
 }
 
 .nav-links a:hover::before,
