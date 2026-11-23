@@ -2047,10 +2047,17 @@ background: radial-gradient(
 }
 
 /* Service carousel arrows */
-.circle-control:hover {
+/* .circle-control:hover {
   background: var(--lime);
   color: #24132F;
+} */
+
+.circle-control:hover {
+  background: #B7CE3B;
+  color: #21132E;
+  transform: scale(1.07);
 }
+
 
 /* Highlight the featured partnership */
 .featured-tag {
