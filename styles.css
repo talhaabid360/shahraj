@@ -477,7 +477,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 /* PROCESS — PHOTOGRAPHIC CARDS */
 
 .process {
-  background: #EAE5F0;
+  /* background: #EAE5F0; */
+  background: #FFFFFF;
 }
 
 /* .process-header h2 {
