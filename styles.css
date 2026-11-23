@@ -239,9 +239,65 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .service-card-copy a { display: flex; margin-top: auto; width: 100%; justify-content: space-between; border-top: 1px solid #E5DFE9; padding-top: 17px; font-size: 10px; letter-spacing: .11em; font-weight: 800; }
 .service-card-copy a span { font-size: 20px; line-height: .7; }
 .carousel-controls { max-width: 555px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
-.circle-control { width: 60px; height: 60px; flex: 0 0 60px; border-radius: 50%; border: 1px solid #D9CFE3; box-shadow: 0 10px 25px #5D38801C; display: grid; place-items: center; background: #FFFBFF; font-size: 24px; color: var(--ink); transition: transform .25s, background .25s; }
-/* .circle-control:hover { transform: scale(1.07); background: #DCC3FF; } */
-.circle-control:hover { transform: scale(1.07); background: #7536E7; color: #FFFFFF; }
+/* .circle-control { width: 60px; height: 60px; flex: 0 0 60px; border-radius: 50%; border: 1px solid #D9CFE3; box-shadow: 0 10px 25px #5D38801C; display: grid; place-items: center; background: #FFFBFF; font-size: 24px; color: var(--ink); transition: transform .25s, background .25s; }
+.circle-control:hover { transform: scale(1.07); background: #7536E7; color: #FFFFFF; } */
+
+/* Editorial tilted frame arrows */
+.circle-control {
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  border: 2.4px solid #111111;   /* bold black edges */
+  border-radius: 10px;
+  color: #111111;
+  cursor: pointer;
+
+  transform: rotate(-8deg);
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.circle-control svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transform: rotate(8deg);
+  transition: transform 0.35s ease;
+}
+
+.circle-control:hover {
+  background: #B7CE3B;
+  border-color: #111111;
+  color: #111111;
+  transform: rotate(0deg) translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.14);
+}
+
+.circle-control:hover svg {
+  transform: rotate(0deg);
+}
+
+.circle-control.prev:hover svg {
+  transform: rotate(0deg) translateX(-3px);
+}
+
+.circle-control.next:hover svg {
+  transform: rotate(0deg) translateX(3px);
+}
+
+
+
 .carousel-current { min-width: 0; display: flex; flex-direction: column; text-align: center; align-items: center; gap: 10px; flex: 1; }
 .carousel-current > span:first-child { font: 800 18px 'Manrope', sans-serif; }
 .carousel-current i { font: 500 12px 'DM Sans', sans-serif; color: #8E809C; }
