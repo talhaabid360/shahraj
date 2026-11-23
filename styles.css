@@ -411,7 +411,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .number-block:first-child { border-left: 0; padding-left: 0; }
 .number-kicker { color: #817489; font-size: 9px; letter-spacing: .13em; font-weight: 800; }
 .number-block strong { display: block; font: 800 clamp(4.7rem,7.8vw,8.8rem)/1.25 'Manrope',sans-serif; letter-spacing: -.105em; color: var(--ink); font-variant-numeric: tabular-nums; }
-.number-block sup { vertical-align: top; font-size: .4em; position: relative; top: .3em; letter-spacing: -.06em; color: #A068F3; }
+/* .number-block sup { vertical-align: top; font-size: .4em; position: relative; top: .3em; letter-spacing: -.06em; color: #A068F3; } */
+
+.number-block sup { vertical-align: top; font-size: .4em; position: relative; top: .3em; letter-spacing: -.06em; color: #B7CE3B; }
+
+
 .number-block p { color: #756D78; font-size: 13px; line-height: 1.55; margin: 0; }
 
 /* Process */
