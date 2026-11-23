@@ -722,17 +722,24 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   /* font: italic 400 1.06em/.98 Georgia,serif; */
   font: italic 400 1.02em/.98 Georgia,serif;
   letter-spacing: -.084em;
-  color: #c58bea;
+  /* color: #c58bea; */
+  color: #FFF9F3;
+  background: linear-gradient(96deg, #FFF9F3 0%, #E4D5F5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .client-partnerships-heading em::after {
   content: "";
   position: absolute;
   left: 15%; right: 18%; bottom: -.17em;
   height: .045em;
-  background: #c58bea;
+  /* background: #c58bea; */
+  background: #B7CE3B;
   border-radius: 100%;
   transform: rotate(-2deg);
-  box-shadow: 0 6px 0 -3px rgba(200,139,247,.50);
+  /* box-shadow: 0 6px 0 -3px rgba(200,139,247,.50); */
+  box-shadow: 0 6px 0 -3px rgba(183, 206, 59, 0.35);
 }
 .client-partnerships-description {
   margin: 56px 0 0;
