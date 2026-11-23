@@ -416,7 +416,19 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .number-block sup { vertical-align: top; font-size: .4em; position: relative; top: .3em; letter-spacing: -.06em; color: #B7CE3B; }
 
 
-.number-block p { color: #756D78; font-size: 13px; line-height: 1.55; margin: 0; }
+/* .number-block p { color: #756D78; font-size: 13px; line-height: 1.55; margin: 0; } */
+
+.number-block p {
+  color: #C0B3CB;
+  font-size: 12px;
+  line-height: 1.55;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.number-block p br {
+  display: none;
+}
 
 /* Process */
 /* .process { background: #EAE5F0; }
