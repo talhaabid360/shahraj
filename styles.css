@@ -214,7 +214,29 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .muted-bullet { color: #A07ACB; }
 
 /* Orbital services carousel */
-.services { padding-bottom: 78px; background: linear-gradient(180deg,#F0EBFA 0%,#EEE8F7 52%,#F4EFF8 100%); overflow: hidden; } 
+/* .services { padding-bottom: 78px; background: linear-gradient(180deg,#F0EBFA 0%,#EEE8F7 52%,#F4EFF8 100%); overflow: hidden; }  */
+
+
+.services {
+  padding-bottom: 78px;
+  background: linear-gradient(
+    180deg,
+    #FAF8FF 0%,
+    #F7F4FC 52%,
+    #FCFAFF 100%
+  );
+  overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 .section-heading-row { display: flex; justify-content: space-between; align-items: end; gap: 60px; }
