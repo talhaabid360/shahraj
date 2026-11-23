@@ -746,7 +746,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   margin: 56px 0 0;
   /* color: #e0d1e7; */
   color: #F2EDF5;
-  font: 400 clamp(13px,1.03vw,17px)/1.6 'DM Sans',Arial,sans-serif;
+  font: 400 13.5px/1.65 'DM Sans', Arial, sans-serif;
 }
 .client-partnerships-description span { display: block; }
 .client-gallery-stage {
