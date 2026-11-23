@@ -706,7 +706,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   margin: 0 0 42px;
   font: 700 11px 'DM Sans',Arial,sans-serif;
   letter-spacing: .18em;
-  color: #cda4ea;
+  /* color: #cda4ea; */
+  color: #FFFFFF;
 }
 .client-partnerships-heading {
   margin: 0;
