@@ -2815,97 +2815,108 @@ body.sr-icons-arriving .social-orbit-item {
 
 
 
+/* ===== FIRE-LIKE PROPULSION TRAIL ===== */
 
-/* ==========================================
-   SHAHRAJ — DIRECTIONAL ROCKET PROPULSION
-   ========================================== */
-
-/* Keep propulsion behind the original logo */
 .social-orbit-item {
   isolation: isolate;
 }
 
-/* Lime-green comet trail */
-.social-orbit-item::before {
+.social-orbit-item::before,
+.social-orbit-item::after {
   content: "";
   position: absolute;
-
-  left: 75%;
   top: 50%;
-
-  width: clamp(80px, 10vw, 145px);
-  height: 18px;
-
+  left: 76%;
+  pointer-events: none;
+  opacity: 0;
+  z-index: -1;
   transform: translateY(-50%);
   transform-origin: left center;
+}
 
-  background: linear-gradient(
-    90deg,
-    #E8FF96 0%,
-    #B7CE3B 15%,
-    rgba(183, 206, 59, 0.55) 40%,
-    rgba(183, 206, 59, 0.12) 75%,
-    transparent 100%
-  );
-
+/* outer flame */
+.social-orbit-item::before {
+  width: 110px;
+  height: 34px;
+  background:
+    radial-gradient(circle at 18% 50%, rgba(255,248,210,.95) 0 10%, rgba(244,255,190,.92) 14%, rgba(183,206,59,.88) 34%, rgba(183,206,59,.45) 60%, transparent 100%);
   clip-path: polygon(
-    0 20%,
+    0% 50%,
+    14% 28%,
+    34% 10%,
+    62% 0%,
     100% 50%,
-    0 80%
+    62% 100%,
+    34% 90%,
+    14% 72%
   );
-
-  filter: drop-shadow(0 0 7px #B7CE3B);
-
-  opacity: 0;
-  pointer-events: none;
-  z-index: -1;
+  filter: blur(1px) drop-shadow(0 0 10px rgba(183,206,59,.65));
 }
 
-/* Animate propulsion with each arriving icon */
+/* inner hot core */
+.social-orbit-item::after {
+  width: 72px;
+  height: 18px;
+  left: 82%;
+  background:
+    radial-gradient(circle at 14% 50%, #fffdf0 0 18%, #f3ffb8 32%, #d7eb63 62%, transparent 100%);
+  clip-path: polygon(
+    0% 50%,
+    18% 24%,
+    58% 6%,
+    100% 50%,
+    58% 94%,
+    18% 76%
+  );
+  filter: blur(.4px);
+}
+
 body.sr-icons-arriving .social-orbit-item::before {
-  animation: srRocketTrail 1.45s ease-out
-    var(--arrival-delay) both;
+  animation: srFlameOuter 1.05s ease-out var(--arrival-delay) both;
 }
 
-@keyframes srRocketTrail {
+body.sr-icons-arriving .social-orbit-item::after {
+  animation: srFlameInner 1.05s ease-out var(--arrival-delay) both;
+}
+
+@keyframes srFlameOuter {
   0% {
     opacity: 0;
-    scale: 1.3 1;
+    transform: translateY(-50%) scaleX(1.55) scaleY(1.2);
   }
-
   18% {
     opacity: 1;
-    scale: 1.15 1;
+    transform: translateY(-50%) scaleX(1.25) scaleY(1.05);
   }
-
   55% {
-    opacity: 0.85;
-    scale: 0.8 1;
+    opacity: .95;
+    transform: translateY(-50%) scaleX(.9) scaleY(.92);
   }
-
   85% {
-    opacity: 0.25;
-    scale: 0.3 1;
+    opacity: .35;
+    transform: translateY(-50%) scaleX(.35) scaleY(.7);
   }
-
   100% {
     opacity: 0;
-    scale: 0 1;
+    transform: translateY(-50%) scaleX(0) scaleY(.45);
   }
 }
 
-/* Slightly shorter trails on mobile */
-@media (max-width: 640px) {
-  .social-orbit-item::before {
-    width: 70px;
-    height: 12px;
-  }
-}
-
-/* Respect reduced-motion settings */
-@media (prefers-reduced-motion: reduce) {
-  body.sr-icons-arriving .social-orbit-item::before {
-    animation: none;
+@keyframes srFlameInner {
+  0% {
     opacity: 0;
+    transform: translateY(-50%) scaleX(1.4);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(-50%) scaleX(1.15);
+  }
+  60% {
+    opacity: .9;
+    transform: translateY(-50%) scaleX(.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50%) scaleX(0);
   }
 }
