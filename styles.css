@@ -2817,3 +2817,323 @@ body.sr-icons-arriving .social-orbit-item {
   }
 }
 
+
+/* =========================================
+   SHAHRAJ GLOBAL — MEET THE MINDS
+   Five overlapping expanding circles
+========================================= */
+
+.sr-team {
+  background: #FFFFFF;
+  color: #21132E;
+  padding: clamp(70px, 8vw, 116px) 0 56px;
+  overflow: visible;
+  isolation: isolate;
+}
+
+.sr-team * {
+  box-sizing: border-box;
+}
+
+.sr-team__inner {
+  width: min(100%, 1320px);
+  margin: auto;
+  text-align: center;
+}
+
+/* Small heading */
+
+.sr-team__eyebrow {
+  font-size: 11px;
+  letter-spacing: .2em;
+  color: #795A8D;
+  font-weight: 800;
+  margin: 0 15px 13px;
+}
+
+/* Main heading */
+
+.sr-team__heading {
+  font-size: clamp(34px, 6.3vw, 78px);
+  letter-spacing: -.075em;
+  line-height: 1;
+  color: #21132E;
+  font-weight: 900;
+  margin: 0 12px 14px;
+}
+
+.sr-team__sub {
+  color: #807389;
+  font-size: 14px;
+  margin: 0 15px;
+}
+
+/* Stage: extra clearance around circles */
+
+.sr-team__stage {
+  padding: 0 clamp(52px, 9vw, 138px);
+  min-height: clamp(260px, 35vw, 410px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: visible;
+}
+
+/* Five portraits in one row */
+
+.sr-team__row {
+  width: min(100%, 990px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  isolation: isolate;
+}
+
+/* Circular portraits */
+
+.sr-team__person {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 210px;
+
+  aspect-ratio: 1;
+
+  margin-left: clamp(-18px, -2vw, -5px);
+
+  border: 4px solid #FFFFFF;
+  border-radius: 50%;
+
+  position: relative;
+  display: block;
+  padding: 0;
+
+  cursor: pointer;
+
+  background: #E9E1EF;
+
+  box-shadow: 0 13px 35px #21132E24;
+
+  transition:
+    transform .7s cubic-bezier(.18, 1, .27, 1),
+    border-color .4s,
+    box-shadow .5s,
+    filter .4s;
+
+  transform: translateZ(0) scale(1);
+  transform-origin: center;
+
+  overflow: hidden;
+  z-index: 1;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sr-team__person:first-child {
+  margin-left: 0;
+}
+
+/* Portrait image */
+
+.sr-team__person img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center 35%;
+
+  transition: transform .7s ease;
+  pointer-events: none;
+}
+
+/* Name and title overlay INSIDE circle */
+
+.sr-team__overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding: 16% 9% 17%;
+
+  color: #FFFFFF;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    180deg,
+    #21132E00 23%,
+    #21132E66 51%,
+    #170C23F2 100%
+  );
+
+  opacity: 0;
+
+  transition: opacity .35s ease;
+
+  pointer-events: none;
+}
+
+/* Name */
+
+.sr-team__overlay strong {
+  font-size: clamp(10px, 1.9vw, 20px);
+  line-height: 1.1;
+  letter-spacing: -.03em;
+}
+
+/* Title */
+
+.sr-team__overlay small {
+  margin-top: 5px;
+
+  font-size: clamp(7px, .95vw, 11px);
+  line-height: 1.23;
+
+  color: #E7F4BF;
+  font-weight: 600;
+
+  max-width: 92%;
+  text-wrap: balance;
+}
+
+/* =========================================
+   HOVER — CIRCLE EXPANDS
+========================================= */
+
+.sr-team__person:is(
+  :hover,
+  :focus-visible,
+  .is-selected
+) {
+  transform: translateY(-7px) scale(1.48);
+
+  border-color: #B7CE3B;
+
+  box-shadow:
+    0 24px 55px #21132E4D,
+    0 0 0 5px #B7CE3B29;
+
+  z-index: 10;
+}
+
+/* Show name and title */
+
+.sr-team__person:is(
+  :hover,
+  :focus-visible,
+  .is-selected
+) .sr-team__overlay {
+  opacity: 1;
+}
+
+/* Slight image zoom */
+
+.sr-team__person:is(
+  :hover,
+  :focus-visible,
+  .is-selected
+) img {
+  transform: scale(1.035);
+}
+
+.sr-team__person:focus-visible {
+  outline: 2px solid #21132E;
+  outline-offset: 8px;
+}
+
+/* Hover overrides previously tapped selection */
+
+.sr-team__row:has(.sr-team__person:hover)
+.sr-team__person.is-selected:not(:hover) {
+  transform: scale(1);
+
+  border-color: #FFFFFF;
+
+  box-shadow: 0 13px 35px #21132E24;
+
+  z-index: 1;
+}
+
+.sr-team__row:has(.sr-team__person:hover)
+.sr-team__person.is-selected:not(:hover)
+.sr-team__overlay {
+  opacity: 0;
+}
+
+/* Bottom instruction */
+
+.sr-team__hint {
+  margin: 0 15px;
+
+  color: #948A9B;
+  font-size: 10px;
+  letter-spacing: .13em;
+  font-weight: 700;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+  .sr-team {
+    padding: 62px 0 38px;
+  }
+
+  .sr-team__stage {
+    padding: 0 38px;
+    min-height: 220px;
+  }
+
+  .sr-team__person {
+    border-width: 2px;
+    margin-left: -5px;
+  }
+
+  .sr-team__person:is(
+    :hover,
+    :focus-visible,
+    .is-selected
+  ) {
+    transform: translateY(-3px) scale(1.48);
+  }
+
+  .sr-team__overlay {
+    padding: 10% 4% 11%;
+  }
+
+  .sr-team__overlay strong {
+    font-size: clamp(7px, 1.85vw, 12px);
+  }
+
+  .sr-team__overlay small {
+    font-size: clamp(5px, 1.2vw, 8px);
+    margin-top: 3px;
+  }
+
+  .sr-team__sub {
+    font-size: 12px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .sr-team__person,
+  .sr-team__person img,
+  .sr-team__overlay {
+    transition: none;
+  }
+
+}
