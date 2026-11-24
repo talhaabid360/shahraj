@@ -571,6 +571,52 @@ function cycleClients() {
 
 
 
+// OUR APPROACH — REVEAL CARDS PROGRESSIVELY ON SCROLL
+{
+  const grid = document.querySelector('#process .process-grid');
+  const cards = grid
+    ? [...grid.querySelectorAll('.process-step')]
+    : [];
+
+  if (grid && cards.length &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+
+    grid.classList.add('sr-scroll-steps');
+
+    let scheduled = false;
+
+    function revealProcessCards() {
+      scheduled = false;
+
+      const gridTop = grid.getBoundingClientRect().top;
+      const start = window.innerHeight * 0.87;
+      const distance = Math.max(300, window.innerHeight * 0.65);
+
+      const progress = Math.max(
+        0,
+        Math.min(1, (start - gridTop) / distance)
+      );
+
+      cards.forEach((card, index) => {
+        if (progress > index * 0.22) {
+          card.classList.add('sr-step-visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!scheduled) {
+        scheduled = true;
+        requestAnimationFrame(revealProcessCards);
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', revealProcessCards);
+
+    revealProcessCards();
+  }
+}
+
 
 
 
