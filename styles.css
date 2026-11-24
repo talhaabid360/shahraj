@@ -2415,38 +2415,84 @@ background: radial-gradient(
 
 
 
-/* OUR APPROACH — PINNED SCROLL SEQUENCE */
 
-.process.sr-scroll-sequence .sr-process-scroll-stage {
-  position: relative;
-  height: 310vh;
+
+
+
+
+
+
+
+
+
+/* FIX STICKY SCROLL BEHAVIOR */
+html,
+body {
+  overflow-x: clip !important;
 }
 
-.process.sr-scroll-sequence .process-grid {
-  position: sticky;
-  top: 110px;
-  z-index: 2;
-}
+/* OUR APPROACH — PIN ENTIRE SECTION */
+@media (min-width: 921px) {
 
-.process.sr-scroll-sequence .process-step.reveal,
-.process.sr-scroll-sequence .process-step.reveal.is-visible {
-  opacity: 0;
-  transform: translateY(100px) scale(.96);
-  transition:
-    opacity .55s ease,
-    transform .75s cubic-bezier(.22,1,.36,1),
-    box-shadow .4s ease;
-}
+  #process.sr-pinned-process {
+    position: relative;
+    height: 380vh;
+    padding: 0;
+    overflow: visible;
+  }
 
-.process.sr-scroll-sequence .process-step.reveal.sr-step-visible {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
+  /* Heading and cards stay together */
+  #process.sr-pinned-process > .site-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+  }
 
-@media (hover: hover) {
-  .process.sr-scroll-sequence
+  #process.sr-pinned-process .process-grid {
+    margin-top: clamp(20px, 4vh, 48px);
+    flex-shrink: 0;
+  }
+
+  #process.sr-pinned-process .process-step {
+    min-height: clamp(280px, 48vh, 500px);
+  }
+
+  /* Cards are hidden until their scroll stage */
+  #process.sr-pinned-process .process-step.reveal,
+  #process.sr-pinned-process .process-step.reveal.is-visible {
+    opacity: 0;
+    transform: translateY(90px) scale(.96);
+    pointer-events: none;
+    transition:
+      opacity .55s ease,
+      transform .75s cubic-bezier(.22,1,.36,1),
+      box-shadow .4s ease;
+  }
+
+  /* Reveal cards individually */
+  #process.sr-pinned-process
+  .process-step.reveal.sr-step-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+
+  #process.sr-pinned-process
   .process-step.reveal.sr-step-visible:hover {
     transform: translateY(-6px) scale(1);
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  #process.sr-pinned-process .process-step.reveal {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    transition: none;
+  }
+}
