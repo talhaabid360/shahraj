@@ -27,16 +27,34 @@
       document.body.classList.remove('sr-loading');
     }
 
-    function startLoaderExit() {
-      if (finished) return;
+    // function startLoaderExit() {
+    //   if (finished) return;
 
-      if (reducedMotion) {
-        finishLoader();
-        return;
-      }
+    //   if (reducedMotion) {
+    //     finishLoader();
+    //     return;
+    //   }
 
-      loader.classList.add('is-exiting');
-    }
+    //   loader.classList.add('is-exiting');
+    // }
+    
+function startLoaderExit() {
+  if (finished) return;
+
+  if (reducedMotion) {
+    finishLoader();
+    return;
+  }
+
+  // Start the existing diagonal wipe
+  loader.classList.add('is-exiting');
+
+  // Icons arrive shortly after the wipe begins
+  window.setTimeout(() => {
+    document.body.classList.add('sr-icons-arriving');
+  }, 250);
+}
+
 
     loader.addEventListener('animationend', (event) => {
       if (
