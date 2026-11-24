@@ -51,10 +51,10 @@
       finishLoader();
     } else {
       // Show the brand intro briefly, then reveal the hero.
-      window.setTimeout(startLoaderExit, 2500);
+      window.setTimeout(startLoaderExit, 3500);
 
       // Safety fallback: never leave the page covered.
-      window.setTimeout(finishLoader, 5000);
+      window.setTimeout(finishLoader, 7000);
     }
   }
 }
