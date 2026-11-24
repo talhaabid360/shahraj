@@ -2414,34 +2414,39 @@ background: radial-gradient(
 }
 
 
-/* OUR APPROACH — SCROLL-TRIGGERED CARD REVEAL */
 
-.process-grid.sr-scroll-steps .process-step.reveal {
-  opacity: 0;
-  transform: translate3d(0, 85px, 0) scale(0.96);
-  transition:
-    opacity 0.75s ease,
-    transform 0.95s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.4s ease;
+/* OUR APPROACH — PINNED SCROLL SEQUENCE */
+
+.process.sr-scroll-sequence .sr-process-scroll-stage {
+  position: relative;
+  height: 310vh;
 }
 
-.process-grid.sr-scroll-steps .process-step.reveal.sr-step-visible {
+.process.sr-scroll-sequence .process-grid {
+  position: sticky;
+  top: 110px;
+  z-index: 2;
+}
+
+.process.sr-scroll-sequence .process-step.reveal,
+.process.sr-scroll-sequence .process-step.reveal.is-visible {
+  opacity: 0;
+  transform: translateY(100px) scale(.96);
+  transition:
+    opacity .55s ease,
+    transform .75s cubic-bezier(.22,1,.36,1),
+    box-shadow .4s ease;
+}
+
+.process.sr-scroll-sequence .process-step.reveal.sr-step-visible {
   opacity: 1;
-  transform: translate3d(0, 0, 0) scale(1);
+  transform: translateY(0) scale(1);
 }
 
 @media (hover: hover) {
-  .process-grid.sr-scroll-steps
+  .process.sr-scroll-sequence
   .process-step.reveal.sr-step-visible:hover {
-    transform: translateY(-6px);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .process-grid.sr-scroll-steps .process-step.reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
+    transform: translateY(-6px) scale(1);
   }
 }
 
