@@ -2414,3 +2414,34 @@ background: radial-gradient(
 }
 
 
+/* OUR APPROACH — SCROLL-TRIGGERED CARD REVEAL */
+
+.process-grid.sr-scroll-steps .process-step.reveal {
+  opacity: 0;
+  transform: translate3d(0, 85px, 0) scale(0.96);
+  transition:
+    opacity 0.75s ease,
+    transform 0.95s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease;
+}
+
+.process-grid.sr-scroll-steps .process-step.reveal.sr-step-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+@media (hover: hover) {
+  .process-grid.sr-scroll-steps
+  .process-step.reveal.sr-step-visible:hover {
+    transform: translateY(-6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .process-grid.sr-scroll-steps .process-step.reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
