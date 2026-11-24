@@ -5,6 +5,60 @@
  */
 (() => {
   'use strict';
+
+
+  
+// SHAHRAJ GLOBAL — BRAND SIGNAL LOADER
+{
+  const loader = document.getElementById('srLoader');
+
+  if (loader) {
+    const reducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+    let finished = false;
+
+    function finishLoader() {
+      if (finished) return;
+      finished = true;
+
+      loader.remove();
+      document.body.classList.remove('sr-loading');
+    }
+
+    function startLoaderExit() {
+      if (finished) return;
+
+      if (reducedMotion) {
+        finishLoader();
+        return;
+      }
+
+      loader.classList.add('is-exiting');
+    }
+
+    loader.addEventListener('animationend', (event) => {
+      if (
+        event.target === loader &&
+        event.animationName === 'srLoaderDiagonalWipe'
+      ) {
+        finishLoader();
+      }
+    });
+
+    if (reducedMotion) {
+      finishLoader();
+    } else {
+      // Show the brand intro briefly, then reveal the hero.
+      window.setTimeout(startLoaderExit, 1350);
+
+      // Safety fallback: never leave the page covered.
+      window.setTimeout(finishLoader, 3500);
+    }
+  }
+}
+
   const CONFIG = {
     contactEmail: '', // Add your real inbox here to enable native email composition.
     newsletterEndpoint: '' // Add your mailing-list signup endpoint before accepting subscriptions.
