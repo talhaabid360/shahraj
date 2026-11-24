@@ -2528,3 +2528,193 @@ body {
     );
   }
 }
+
+
+
+
+/* ==========================================
+   SHAHRAJ GLOBAL — BRAND SIGNAL LOADER
+   WITH CINEMATIC DIAGONAL WIPE
+   ========================================== */
+
+body.sr-loading {
+  overflow: hidden;
+}
+
+/* Fullscreen loader */
+.sr-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #21132E;
+  color: #FFFFFF;
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    0 100%
+  );
+
+  will-change: clip-path;
+}
+
+/* Centered content */
+.sr-loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Five lime signal bars */
+.sr-loader-signal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  height: 18px;
+  margin-bottom: 23px;
+}
+
+.sr-loader-signal span {
+  width: 4px;
+  height: 8px;
+  border-radius: 5px;
+  background: #B7CE3B;
+
+  animation: srSignalPulse 0.75s ease-in-out infinite alternate;
+}
+
+.sr-loader-signal span:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.sr-loader-signal span:nth-child(3) {
+  animation-delay: 0.24s;
+}
+
+.sr-loader-signal span:nth-child(4) {
+  animation-delay: 0.36s;
+}
+
+.sr-loader-signal span:nth-child(5) {
+  animation-delay: 0.48s;
+}
+
+/* Bold typography */
+.sr-loader-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: clamp(48px, 6.8vw, 94px);
+  font-weight: 800;
+  line-height: 0.97;
+  letter-spacing: -0.075em;
+
+  color: #FFFFFF;
+}
+
+.sr-loader-title span {
+  display: block;
+}
+
+/* Subtitle */
+.sr-loader-subtitle {
+  margin-top: 18px;
+
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: clamp(9px, 0.9vw, 12px);
+  font-weight: 700;
+  letter-spacing: 0.32em;
+
+  color: #D8CADD;
+}
+
+/* Signal animation */
+@keyframes srSignalPulse {
+  0%, 100% {
+    height: 6px;
+    opacity: 0.6;
+  }
+
+  50% {
+    height: 17px;
+    opacity: 1;
+  }
+}
+
+/* Fade the text before the screen leaves */
+.sr-loader.is-exiting .sr-loader-content {
+  animation: srLoaderTextOut 0.35s ease forwards;
+}
+
+@keyframes srLoaderTextOut {
+  to {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+}
+
+/* Diagonal wipe revealing the homepage */
+.sr-loader.is-exiting {
+  animation: srLoaderDiagonalWipe 1.15s
+    cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+@keyframes srLoaderDiagonalWipe {
+  0% {
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 100%,
+      0 100%
+    );
+  }
+
+  100% {
+    clip-path: polygon(
+      -45% 0,
+      0% 0,
+      -45% 100%,
+      -90% 100%
+    );
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .sr-loader-title {
+    font-size: clamp(43px, 12vw, 70px);
+  }
+
+  .sr-loader-subtitle {
+    font-size: 9px;
+    letter-spacing: 0.23em;
+  }
+
+  .sr-loader-signal {
+    margin-bottom: 20px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .sr-loader-signal span {
+    animation: none;
+  }
+
+  .sr-loader.is-exiting {
+    animation-duration: 0.01ms;
+  }
+
+  .sr-loader.is-exiting .sr-loader-content {
+    animation: none;
+  }
+}
