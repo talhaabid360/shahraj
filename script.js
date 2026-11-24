@@ -571,51 +571,74 @@ function cycleClients() {
 
 
 
-// OUR APPROACH — REVEAL CARDS PROGRESSIVELY ON SCROLL
+// OUR APPROACH — ONE CARD PER SCROLL STAGE
 {
-  const grid = document.querySelector('#process .process-grid');
+  const section = document.querySelector('#process');
+  const grid = section?.querySelector('.process-grid');
   const cards = grid
     ? [...grid.querySelectorAll('.process-step')]
     : [];
 
-  if (grid && cards.length &&
-      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const desktop = window.matchMedia('(min-width: 921px)');
+  const reducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  );
 
-    grid.classList.add('sr-scroll-steps');
+  if (section && grid && cards.length &&
+      desktop.matches && !reducedMotion.matches) {
 
-    let scheduled = false;
+    // Give the existing grid enough scroll distance to stay pinned
+    const stage = document.createElement('div');
+    stage.className = 'sr-process-scroll-stage';
 
-    function revealProcessCards() {
-      scheduled = false;
+    grid.parentNode.insertBefore(stage, grid);
+    stage.appendChild(grid);
 
-      const gridTop = grid.getBoundingClientRect().top;
-      const start = window.innerHeight * 0.87;
-      const distance = Math.max(300, window.innerHeight * 0.65);
+    section.classList.add('sr-scroll-sequence');
 
-      const progress = Math.max(
-        0,
-        Math.min(1, (start - gridTop) / distance)
+    let ticking = false;
+
+    function updateSteps() {
+      ticking = false;
+
+      const rect = stage.getBoundingClientRect();
+      const travel = Math.max(
+        1,
+        stage.offsetHeight - window.innerHeight
       );
 
+      const progress = Math.max(0, Math.min(1,
+        (window.innerHeight * .55 - rect.top) / travel
+      ));
+
+      // First card is visible initially.
+      // Each subsequent card requires more scrolling.
+      const thresholds = [0, .20, .43, .66];
+
       cards.forEach((card, index) => {
-        if (progress > index * 0.22) {
-          card.classList.add('sr-step-visible');
-        }
+        card.classList.toggle(
+          'sr-step-visible',
+          index === 0 || progress >= thresholds[index]
+        );
       });
     }
 
-    window.addEventListener('scroll', () => {
-      if (!scheduled) {
-        scheduled = true;
-        requestAnimationFrame(revealProcessCards);
-      }
-    }, { passive: true });
+    function scheduleUpdate() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(updateSteps);
+    }
 
-    window.addEventListener('resize', revealProcessCards);
+    window.addEventListener('scroll', scheduleUpdate, {
+      passive: true
+    });
 
-    revealProcessCards();
+    window.addEventListener('resize', scheduleUpdate);
+
+    updateSteps();
   }
 }
+
 
 
 
