@@ -2824,7 +2824,12 @@ body.sr-icons-arriving .social-orbit-item {
 ========================================= */
 
 .sr-team {
-  background: #FFFFFF;
+  background: linear-gradient(
+  110deg,
+  #331C42 0%,
+  #442753 50%,
+  #311B40 100%
+);
   color: #21132E;
   padding: clamp(70px, 8vw, 116px) 0 56px;
   overflow: visible;
