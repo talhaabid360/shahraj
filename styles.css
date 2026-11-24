@@ -3142,3 +3142,18 @@ body.sr-icons-arriving .social-orbit-item {
   }
 
 }
+
+
+/* Meet the Team — dark background styling */
+
+.sr-team__heading {
+  color: #FFFFFF;
+}
+
+.sr-team__person {
+  border-color: #FFFFFF;
+}
+
+.sr-team__hint {
+  display: none;
+}
