@@ -2256,3 +2256,116 @@ background: radial-gradient(
 
 
 
+/* SHAHRAJ — CROSSING EDITORIAL MARQUEES */
+
+.sr-ribbons {
+  position: relative;
+  height: clamp(245px, 27vw, 390px);
+  background: #FFFFFF;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.sr-ribbon {
+  position: absolute;
+  left: -8%;
+  width: 116%;
+  height: clamp(67px, 8vw, 108px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transform-origin: center;
+}
+
+.sr-ribbon-top {
+  top: 31%;
+  z-index: 2;
+  transform: rotate(4deg);
+  background: #21132E;
+  color: #FFFFFF;
+}
+
+.sr-ribbon-bottom {
+  top: 43%;
+  z-index: 1;
+  transform: rotate(-4deg);
+  background: #EDE8F0;
+  color: #21132E;
+}
+
+.sr-ribbon-track {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: max-content;
+  animation: srRibbonMove 28s linear infinite;
+  will-change: transform;
+}
+
+.sr-ribbon-bottom .sr-ribbon-track {
+  animation-direction: reverse;
+  animation-duration: 33s;
+}
+
+.sr-ribbon-group {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 42px;
+  padding-right: 42px;
+  white-space: nowrap;
+}
+
+.sr-ribbon-group span {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(24px, 3.1vw, 51px);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 1.2;
+}
+
+.sr-ribbon-group span:nth-child(even) {
+  color: #B7CE3B;
+  font-size: .8em;
+}
+
+@keyframes srRibbonMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 640px) {
+  .sr-ribbons {
+    height: 250px;
+  }
+
+  .sr-ribbon {
+    left: -16%;
+    width: 132%;
+    height: 70px;
+  }
+
+  .sr-ribbon-top {
+    top: 31%;
+  }
+
+  .sr-ribbon-bottom {
+    top: 44%;
+  }
+
+  .sr-ribbon-group {
+    gap: 24px;
+    padding-right: 24px;
+  }
+
+  .sr-ribbon-group span {
+    font-size: 25px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sr-ribbon-track {
+    animation: none;
+  }
+}
+
