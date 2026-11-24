@@ -2812,3 +2812,100 @@ body.sr-icons-arriving .social-orbit-item {
     animation: none;
   }
 }
+
+
+
+
+/* ==========================================
+   SHAHRAJ — DIRECTIONAL ROCKET PROPULSION
+   ========================================== */
+
+/* Keep propulsion behind the original logo */
+.social-orbit-item {
+  isolation: isolate;
+}
+
+/* Lime-green comet trail */
+.social-orbit-item::before {
+  content: "";
+  position: absolute;
+
+  left: 75%;
+  top: 50%;
+
+  width: clamp(80px, 10vw, 145px);
+  height: 18px;
+
+  transform: translateY(-50%);
+  transform-origin: left center;
+
+  background: linear-gradient(
+    90deg,
+    #E8FF96 0%,
+    #B7CE3B 15%,
+    rgba(183, 206, 59, 0.55) 40%,
+    rgba(183, 206, 59, 0.12) 75%,
+    transparent 100%
+  );
+
+  clip-path: polygon(
+    0 20%,
+    100% 50%,
+    0 80%
+  );
+
+  filter: drop-shadow(0 0 7px #B7CE3B);
+
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Animate propulsion with each arriving icon */
+body.sr-icons-arriving .social-orbit-item::before {
+  animation: srRocketTrail 1.45s ease-out
+    var(--arrival-delay) both;
+}
+
+@keyframes srRocketTrail {
+  0% {
+    opacity: 0;
+    scale: 1.3 1;
+  }
+
+  18% {
+    opacity: 1;
+    scale: 1.15 1;
+  }
+
+  55% {
+    opacity: 0.85;
+    scale: 0.8 1;
+  }
+
+  85% {
+    opacity: 0.25;
+    scale: 0.3 1;
+  }
+
+  100% {
+    opacity: 0;
+    scale: 0 1;
+  }
+}
+
+/* Slightly shorter trails on mobile */
+@media (max-width: 640px) {
+  .social-orbit-item::before {
+    width: 70px;
+    height: 12px;
+  }
+}
+
+/* Respect reduced-motion settings */
+@media (prefers-reduced-motion: reduce) {
+  body.sr-icons-arriving .social-orbit-item::before {
+    animation: none;
+    opacity: 0;
+  }
+}
