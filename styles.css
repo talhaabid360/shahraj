@@ -2823,14 +2823,15 @@ body.sr-icons-arriving .social-orbit-item {
    Five overlapping expanding circles
 ========================================= */
 
+
 .sr-team {
-  background: linear-gradient(
-  110deg,
-  #331C42 0%,
-  #442753 50%,
-  #311B40 100%
-);
-  color: #21132E;
+  background: radial-gradient(
+    ellipse at 30% 10%,
+    #402351,
+    #170D23 75%
+  );
+
+  color: #FFFFFF;
   padding: clamp(70px, 8vw, 116px) 0 56px;
   overflow: visible;
   isolation: isolate;
