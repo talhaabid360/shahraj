@@ -217,7 +217,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 /* .services { padding-bottom: 78px; background: linear-gradient(180deg,#F0EBFA 0%,#EEE8F7 52%,#F4EFF8 100%); overflow: hidden; }  */
 
 
-.services {
+/* .services {
   padding-bottom: 78px;
   background: linear-gradient(
     180deg,
@@ -226,9 +226,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     #FCFAFF 100%
   );
   overflow: hidden;
+} */
+
+.services {
+  padding-bottom: 78px;
+  background: #FFFFFF;
+  overflow: hidden;
 }
-
-
 
 
 
