@@ -2718,3 +2718,97 @@ body.sr-loading {
     animation: none;
   }
 }
+
+
+
+
+/* =====================================
+   SHAHRAJ — DIRECTIONAL SOCIAL ICON ARRIVAL
+   ===================================== */
+
+/* Hide logos behind the loading screen */
+body.sr-loading .social-orbit-item {
+  opacity: 0;
+}
+
+/* Each icon has its own arrival direction */
+.social-orbit-item:nth-child(1) {
+  --arrival-x: 0vw;
+  --arrival-y: -65vh;
+  --arrival-delay: 0.05s;
+}
+
+.social-orbit-item:nth-child(2) {
+  --arrival-x: 60vw;
+  --arrival-y: -60vh;
+  --arrival-delay: 0.15s;
+}
+
+.social-orbit-item:nth-child(3) {
+  --arrival-x: 65vw;
+  --arrival-y: 0vh;
+  --arrival-delay: 0.25s;
+}
+
+.social-orbit-item:nth-child(4) {
+  --arrival-x: 60vw;
+  --arrival-y: 60vh;
+  --arrival-delay: 0.35s;
+}
+
+.social-orbit-item:nth-child(5) {
+  --arrival-x: 0vw;
+  --arrival-y: 65vh;
+  --arrival-delay: 0.45s;
+}
+
+.social-orbit-item:nth-child(6) {
+  --arrival-x: -60vw;
+  --arrival-y: 60vh;
+  --arrival-delay: 0.32s;
+}
+
+.social-orbit-item:nth-child(7) {
+  --arrival-x: -65vw;
+  --arrival-y: 0vh;
+  --arrival-delay: 0.20s;
+}
+
+.social-orbit-item:nth-child(8) {
+  --arrival-x: -60vw;
+  --arrival-y: -60vh;
+  --arrival-delay: 0.10s;
+}
+
+/* Start when the diagonal wipe begins */
+body.sr-icons-arriving .social-orbit-item {
+  animation: srIconArrival 1.45s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    var(--arrival-delay)
+    both;
+}
+
+@keyframes srIconArrival {
+  from {
+    translate: var(--arrival-x) var(--arrival-y);
+    opacity: 0;
+    filter: blur(5px);
+  }
+
+  to {
+    translate: 0 0;
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  body.sr-loading .social-orbit-item {
+    opacity: 1;
+  }
+
+  body.sr-icons-arriving .social-orbit-item {
+    animation: none;
+  }
+}
