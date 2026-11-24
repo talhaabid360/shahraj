@@ -2496,3 +2496,20 @@ body {
     transition: none;
   }
 }
+
+/* Independent white background for crossing marquees */
+.sr-ribbons {
+  background: #FFFFFF;
+  height: 240px;
+  margin-top: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .sr-ribbons {
+    height: 180px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
