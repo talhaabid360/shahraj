@@ -2500,20 +2500,31 @@ body {
 .sr-ribbons {
   position: relative;
   z-index: 10;
-  background: #FFFFFF;
-  height: 240px;
-
-  /* Restore overlap with Client Partnerships */
+  height: 300px;
   margin-top: -110px;
   margin-bottom: 0;
 
+  background: linear-gradient(
+    to bottom,
+    transparent 0 110px,
+    #FFFFFF 110px 100%
+  );
+
   overflow: visible;
+  isolation: isolate;
+  pointer-events: none;
 }
 
 @media (max-width: 640px) {
   .sr-ribbons {
-    height: 180px;
+    height: 220px;
     margin-top: -75px;
     margin-bottom: 0;
+
+    background: linear-gradient(
+      to bottom,
+      transparent 0 75px,
+      #FFFFFF 75px 100%
+    );
   }
 }
