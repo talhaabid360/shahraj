@@ -726,6 +726,52 @@ function cycleClients() {
 
 
 
+// =========================================
+// SHAHRAJ TEAM — TAP TO SELECT
+// Desktop hover is handled by CSS
+// =========================================
+
+(() => {
+
+  const team = document.querySelector('.sr-team');
+
+  if (!team) return;
+
+  const people = [
+    ...team.querySelectorAll('.sr-team__person')
+  ];
+
+  people.forEach(person => {
+
+    person.addEventListener('click', () => {
+
+      const wasSelected =
+        person.classList.contains('is-selected');
+
+      // Reset all portraits
+      people.forEach(p => {
+
+        p.classList.remove('is-selected');
+
+        p.setAttribute('aria-pressed', 'false');
+
+      });
+
+      // Select clicked portrait
+      if (!wasSelected) {
+
+        person.classList.add('is-selected');
+
+        person.setAttribute('aria-pressed', 'true');
+
+      }
+
+    });
+
+  });
+
+
+
 
 
 
