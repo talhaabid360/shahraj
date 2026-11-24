@@ -2295,7 +2295,7 @@ background: radial-gradient(
 
 /* Upper ribbon */
 .sr-ribbon-top {
-  top: 28%;
+  top: 34%;
   z-index: 2;
 
   transform: rotate(4deg);
@@ -2306,7 +2306,7 @@ background: radial-gradient(
 
 /* Lower ribbon */
 .sr-ribbon-bottom {
-  top: 54%;
+  top: 34%;
   z-index: 1;
 
   transform: rotate(-4deg);
@@ -2389,11 +2389,11 @@ background: radial-gradient(
   }
 
   .sr-ribbon-top {
-    top: 26%;
+    top: 34%;
   }
 
   .sr-ribbon-bottom {
-    top: 53%;
+    top: 44%;
   }
 
   .sr-ribbon-group {
